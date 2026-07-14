@@ -1,0 +1,51 @@
+customer_id,first_name,last_name,city,state,address,address_type,signup_datetime,email,phone_number,gender,date_of_birth,last_modified_date,is_active,postal_code,country
+100,Priya,Yadav,Jaipur,Rajasthan,"190, Shastri Nagar",Home,2023-05-23 23:06:00,priya.yadav100@example.com,9193349856,Others,1988-01-01,2024-02-26 23:06:00,true,302001,India
+101,Garima,Mehta,Delhi,Delhi,"7, Civil Lines",Home,2024-12-19 17:26:00,garima.mehta101@example.com,9582334538,Others,1983-01-25,2025-04-10 17:26:00,true,110001,India
+102,Rohit,Singh,Kota,Rajasthan,"72, Malviya Nagar",Home,2025-02-20 10:06:00,rohit.singh102@example.com,9507943839,Male,1986-06-20,2025-04-08 10:06:00,true,324001,India
+103,Ashish,Verma,Delhi,Delhi,"32, Tonk Road",Home,2023-10-28 20:39:00,ashish.verma103@example.com,9719927151,Male,1997-02-02,2024-04-30 20:39:00,true,110001,India
+104,Amit,Sharma,Jaipur,Rajasthan,"219, Civil Lines",Office,2024-01-25 08:29:00,amit.sharma104@example.com,9274648506,Female,1986-04-22,2024-07-29 08:29:00,true,302001,India
+105,Meena,Yadav,Delhi,Delhi,"163, Malviya Nagar",Home,2023-09-08 05:29:00,meena.yadav105@example.com,9389854268,Others,1997-09-08,2024-03-20 05:29:00,true,110001,India
+106,Sanjay,Rathore,Ajmer,Rajasthan,"211, MG Road",Office,2024-02-15 08:04:00,sanjay.rathore106@example.com,9709004943,Others,1985-04-21,2024-06-02 08:04:00,true,305001,India
+107,Kiran,Verma,Ajmer,Rajasthan,"68, Malviya Nagar",Home,2024-07-28 17:16:00,kiran.verma107@example.com,9560027313,Others,1987-06-08,2025-05-23 17:16:00,false,305001,India
+108,Annu,Mehta,Agra,Uttar Pradesh,"24, MG Road",Office,2023-06-06 20:10:00,annu.mehta108@example.com,9740389325,Male,1987-07-20,2024-01-08 20:10:00,false,282001,India
+109,Bablu,Sharma,Delhi,Delhi,"221, MG Road",Home,2023-04-28 21:56:00,bablu.sharma109@example.com,9906248900,Female,1999-11-11,2024-01-27 21:56:00,true,110001,India
+110,Raju,Jain,Agra,Uttar Pradesh,"1, Shastri Nagar",Others,2025-02-19 05:32:00,raju.jain110@example.com,9771410971,Female,2001-11-17,2025-04-14 05:32:00,true,282001,India
+111,Annu,Gupta,Ajmer,Rajasthan,"139, MG Road",Home,2024-05-15 00:07:00,annu.gupta111@example.com,9992994062,Female,1982-01-08,2024-11-16 00:07:00,true,305001,India
+112,Ankit,Yadav,Udaipur,Rajasthan,"125, Vaishali Nagar",Others,2024-06-29 04:08:00,ankit.yadav112@example.com,9690347116,Male,1983-09-28,2025-02-27 04:08:00,true,313001,India
+113,Amber,Mehta,Udaipur,Rajasthan,"177, Civil Lines",Home,2024-02-13 21:41:00,amber.mehta113@example.com,9570406376,Others,1989-02-08,2024-08-22 21:41:00,true,313001,India
+114,Rajiv,Rathore,Delhi,Delhi,"142, Civil Lines",Home,2023-01-08 02:45:00,rajiv.rathore114@example.com,9345824373,Male,2003-01-28,2023-02-07 02:45:00,true,110001,India
+115,Bablu,Kumar,Kota,Rajasthan,"172, Bapu Nagar",Home,2023-05-16 23:59:00,bablu.kumar115@example.com,9718702544,Female,1982-08-26,2024-03-03 23:59:00,true,324001,India
+116,Manju,Yadav,Udaipur,Rajasthan,"111, Gandhi Path",Home,2024-04-23 23:03:00,manju.yadav116@example.com,9165082363,Female,1998-06-26,2024-06-12 23:03:00,true,313001,India
+117,Garima,Kumar,Ajmer,Rajasthan,"138, Bapu Nagar",Home,2023-07-07 08:29:00,garima.kumar117@example.com,9180943908,Female,2000-09-04,2023-11-11 08:29:00,true,305001,India
+118,Babu,Rathore,Jaipur,Rajasthan,"238, Civil Lines",Home,2024-05-12 15:13:00,babu.rathore118@example.com,9162959284,Male,1987-01-13,2024-12-03 15:13:00,true,302001,India
+119,Nitin,Verma,Kota,Rajasthan,"109, Bapu Nagar",Home,2023-10-31 06:03:00,nitin.verma119@example.com,9889991777,Others,1976-12-11,2024-08-22 06:03:00,true,324001,India
+120,Rani,Verma,Delhi,Delhi,"236, Malviya Nagar",Home,2024-06-04 02:54:00,rani.verma120@example.com,9173574218,Others,1977-11-28,2024-09-07 02:54:00,true,110001,India
+121,Manju,Agarwal,Ajmer,Rajasthan,"149, MG Road",Home,2024-03-05 21:37:00,manju.agarwal121@example.com,9661333669,Female,2004-05-07,2024-12-19 21:37:00,true,305001,India
+122,Rajiv,Kumar,Kota,Rajasthan,"102, Malviya Nagar",Home,2023-11-04 14:20:00,rajiv.kumar122@example.com,9110002396,Female,1994-10-04,2023-12-11 14:20:00,true,324001,India
+123,Amber,Mehta,Kota,Rajasthan,"34, Gandhi Path",Office,2025-06-19 07:23:00,amber.mehta123@example.com,9269379374,Female,2001-09-23,2025-06-30 00:00:00,true,324001,India
+124,Nitin,Mehta,Jaipur,Rajasthan,"171, Shastri Nagar",Office,2023-04-17 04:16:00,nitin.mehta124@example.com,9214929002,Others,1992-03-09,2023-06-15 04:16:00,true,302001,India
+125,Amber,Gupta,Ajmer,Rajasthan,"176, Shastri Nagar",Home,2023-09-15 01:05:00,amber.gupta125@example.com,9990505735,Female,1976-01-11,2024-04-18 01:05:00,true,305001,India
+126,Priya,Sharma,Ajmer,Rajasthan,"190, Bapu Nagar",Home,2024-03-13 17:00:00,priya.sharma126@example.com,9180792472,Others,2003-03-18,2024-05-09 17:00:00,true,305001,India
+127,Kamal,Agarwal,Delhi,Delhi,"38, Tonk Road",Home,2023-11-12 11:57:00,kamal.agarwal127@example.com,9484194737,Male,1996-04-22,2023-12-02 11:57:00,true,110001,India
+128,Amit,Mehta,Agra,Uttar Pradesh,"250, Malviya Nagar",Office,2023-08-31 05:51:00,amit.mehta128@example.com,9542697755,Male,1980-12-11,2023-11-29 05:51:00,true,282001,India
+129,Raju,Kumar,Kota,Rajasthan,"41, Vaishali Nagar",Home,2023-02-09 15:14:00,raju.kumar129@example.com,9976803188,Female,1986-05-27,2023-05-22 15:14:00,true,324001,India
+130,Garima,Kumar,Jaipur,Rajasthan,"169, Civil Lines",Home,2023-10-13 02:49:00,garima.kumar130@example.com,9477040284,Others,1991-07-22,2024-03-03 02:49:00,false,302001,India
+131,Babu,Gupta,Jaipur,Rajasthan,"30, Shastri Nagar",Home,2023-09-29 01:06:00,babu.gupta131@example.com,9471178705,Others,2000-06-14,2024-05-08 01:06:00,true,302001,India
+132,Bablu,Yadav,Agra,Uttar Pradesh,"231, Civil Lines",Home,2024-12-26 13:00:00,bablu.yadav132@example.com,9965984448,Others,1996-12-24,2025-06-30 00:00:00,true,282001,India
+133,Amber,Gupta,Agra,Uttar Pradesh,"18, Gandhi Path",Home,2024-11-10 03:46:00,amber.gupta133@example.com,9644518647,Female,1996-07-11,2025-04-12 03:46:00,true,282001,India
+134,Sukhdev,Mehta,Ajmer,Rajasthan,"50, Tonk Road",Home,2024-01-24 21:47:00,sukhdev.mehta134@example.com,9760904107,Others,1984-07-18,2024-04-22 21:47:00,true,305001,India
+135,Sukhdev,Sharma,Ajmer,Rajasthan,"111, Gandhi Path",Home,2024-03-28 21:13:00,sukhdev.sharma135@example.com,9608079792,Others,1980-11-03,2024-12-14 21:13:00,true,305001,India
+136,Neha,Agarwal,Kota,Rajasthan,"24, Civil Lines",Home,2023-08-19 06:09:00,neha.agarwal136@example.com,9149621604,Male,1990-10-28,2023-08-31 06:09:00,true,324001,India
+137,Pawan,Singh,Udaipur,Rajasthan,"148, Civil Lines",Home,2024-01-29 15:25:00,pawan.singh137@example.com,9258453521,Others,1997-01-25,2024-06-01 15:25:00,true,313001,India
+138,Kiran,Yadav,Agra,Uttar Pradesh,"57, Malviya Nagar",Office,2024-12-13 16:29:00,kiran.yadav138@example.com,9698509918,Male,2004-02-15,2025-01-07 16:29:00,true,282001,India
+139,Pawan,Mehta,Delhi,Delhi,"153, Gandhi Path",Others,2024-03-29 19:52:00,pawan.mehta139@example.com,9558209399,Others,1989-03-24,2024-12-12 19:52:00,true,110001,India
+140,Pawan,Sharma,Ajmer,Rajasthan,"216, Shastri Nagar",Home,2024-06-17 15:40:00,pawan.sharma140@example.com,9394846763,Female,1977-12-10,2024-10-17 15:40:00,true,305001,India
+141,Rajiv,Gupta,Delhi,Delhi,"21, Malviya Nagar",Home,2024-01-28 22:09:00,rajiv.gupta141@example.com,9168965204,Female,1988-06-18,2024-05-16 22:09:00,true,110001,India
+142,Ashish,Kumar,Agra,Uttar Pradesh,"100, MG Road",Office,2025-02-22 18:24:00,ashish.kumar142@example.com,9106330865,Female,1984-07-28,2025-06-30 00:00:00,true,282001,India
+143,Sanjay,Singh,Delhi,Delhi,"192, Civil Lines",Home,2023-10-07 13:31:00,sanjay.singh143@example.com,9517532243,Female,1996-11-26,2023-10-21 13:31:00,true,110001,India
+144,Deepti,Verma,Ajmer,Rajasthan,"160, MG Road",Office,2024-08-29 18:42:00,deepti.verma144@example.com,9190137896,Others,1988-03-28,2024-09-11 18:42:00,true,305001,India
+145,Ashish,Sharma,Agra,Uttar Pradesh,"84, Civil Lines",Home,2023-12-12 12:17:00,ashish.sharma145@example.com,9370874491,Male,1990-01-24,2024-07-14 12:17:00,true,282001,India
+146,Kamal,Kumar,Udaipur,Rajasthan,"18, MG Road",Home,2023-09-11 06:53:00,kamal.kumar146@example.com,9767154083,Male,1982-03-16,2023-09-21 06:53:00,true,313001,India
+147,Rani,Kumar,Agra,Uttar Pradesh,"180, Shastri Nagar",Home,2023-06-21 19:38:00,rani.kumar147@example.com,9935147672,Male,1984-02-19,2023-08-18 19:38:00,true,282001,India
+148,Sukhdev,Agarwal,Udaipur,Rajasthan,"233, Tonk Road",Home,2025-01-02 06:04:00,sukhdev.agarwal148@example.com,9209415691,Others,1999-05-28,2025-05-06 06:04:00,true,313001,India
+149,Nitin,Yadav,Delhi,Delhi,"201, MG Road",Home,2024-03-14 21:23:00,nitin.yadav149@example.com,9643271261,Others,1985-01-28,2024-04-18 21:23:00,true,110001,India
