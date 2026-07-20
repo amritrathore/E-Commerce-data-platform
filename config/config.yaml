@@ -1,0 +1,106 @@
+project:
+  app_name: Ecommerce Data Platform
+  version: 1.0
+
+spark:
+  app_name: Ecommerce Data Platform
+  master: local[*]
+
+  config:
+    spark.sql.shuffle.partitions: 8
+    spark.sql.session.timezone: UTC
+    spark.sql.adaptive.enabled: true
+    spark.serializer: org.apache.spark.serializer.kryoSerializer
+
+logging:
+  level: INFO
+  path: logs/
+  file: etl.log
+
+datasets:
+  categories:
+    source: data/source/categories.csv
+    bronze: data/bronze/categories
+    silver: data/silver/categories
+    gold: data/gold/dim_categories
+    quarantine: data/quarantine/categories
+    schema: categories_schema
+    format: csv
+    delimiter: ","
+    header: true
+
+  customers:
+    source: data/source/customers.csv
+    bronze: data/bronze/customers
+    silver: data/silver/customers
+    gold: data/gold/dim_customers
+    quarantine: data/quarantine/customers
+    schema: customer_schema
+    format: csv
+    delimiter: ","
+    header: true
+    validation:
+      mandatory_columns:
+        - customerID
+        - customerName
+        - Email
+      
+      duplicate_keys:
+        -CustomerID
+      
+      max_bad_records_percent: 5
+
+  order_items:
+    source: data/source/order_items.csv
+    bronze: data/bronze/order_items
+    silver: data/silver/order_items
+    gold: data/gold/dim_order_items
+    quarantine: data/quarantine/order_items
+    schema: order_items_schema
+    format: csv
+    delimiter: ","
+    header: true
+
+  orders:
+    source: data/source/orders.csv
+    bronze: data/bronze/orders
+    silver: data/silver/orders
+    gold: data/gold/fact_orders
+    quarantine: data/quarantine/orders
+    schema: orders_schema
+    format: csv
+    delimiter: ","
+    header: true
+
+  products:
+    source: data/source/products.csv
+    bronze: data/bronze/products
+    silver: data/silver/products
+    gold: data/gold/dim_products
+    quarantine: data/quarantine/products
+    schema: products_schema
+    format: csv
+    delimiter: ","
+    header: true
+
+  wishlist:
+    source: data/source/wishlist.csv
+    bronze: data/bronze/wishlist
+    silver: data/silver/wishlist
+    gold: data/gold/dim_wishlist
+    quarantine: data/quarantine/wishlist
+    schema: wishlist_schema
+    format: csv
+    delimiter: ","
+    header: true
+
+
+file:
+  format: csv
+  delimiter: ","
+  header: true
+
+metadata:
+  pipeline: Bronze
+  owner: Amrit
+  batch_size: 10000
