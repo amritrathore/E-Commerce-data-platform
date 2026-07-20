@@ -10,7 +10,7 @@ spark:
     spark.sql.shuffle.partitions: 8
     spark.sql.session.timezone: UTC
     spark.sql.adaptive.enabled: true
-    spark.serializer: org.apache.spark.serializer.kryoSerializer
+    spark.serializer: org.apache.spark.serializer.KryoSerializer
 
 logging:
   level: INFO

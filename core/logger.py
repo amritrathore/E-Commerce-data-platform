@@ -1,6 +1,6 @@
 import logging
 from pathlib import Path
-from config_loader import ConfigLoader
+from core.config_loader import ConfigLoader
 
 
 def get_logger(name: str) -> logging.Logger:
@@ -8,7 +8,7 @@ def get_logger(name: str) -> logging.Logger:
     Returns a configured logger
     """
 
-    config = ConfigLoader("D:/Project/E-Commerce-data-platform/E-Commerce-data-platform/config/config.yaml")
+    config = ConfigLoader("D:/Project/E-Commerce-data-platform/config/config.yaml")
     log_config = config.get_logging_config()
 
     log_path = Path(log_config["path"])
@@ -18,7 +18,7 @@ def get_logger(name: str) -> logging.Logger:
 
     logger = logging.getLogger(name)
 
-    if logger.hasHandlers():
+    if not logger.hasHandlers:
         return logger
     
     logger.setLevel(getattr(logging, log_config["level"].upper()))

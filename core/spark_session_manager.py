@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 
-from config_loader import ConfigLoader
-from logger import get_logger
+from core.config_loader import ConfigLoader
+from core.logger import get_logger
 
 
 class SparkSessionManager:
@@ -15,7 +15,7 @@ class SparkSessionManager:
         if cls._spark is not None:
             return cls._spark
 
-        config = ConfigLoader("D:/Project/E-Commerce-data-platform/E-Commerce-data-platform/config/config.yaml")
+        config = ConfigLoader("D:/Project/E-Commerce-data-platform/config/config.yaml")
 
         spark_config = config.get_spark_config()
 

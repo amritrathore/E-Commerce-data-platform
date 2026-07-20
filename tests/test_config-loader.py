@@ -1,7 +1,7 @@
 import pytest
 from core.config_loader import ConfigLoader
 
-CONFIG_PATH = "D:/Project/E-Commerce-data-platform/E-Commerce-data-platform/config/config.yaml"
+CONFIG_PATH = "D:/Project/E-Commerce-data-platform/config/config.yaml"
 
 def test_config_file_loads():
     config = ConfigLoader(CONFIG_PATH)
@@ -14,7 +14,7 @@ def test_project_section_exists():
 
     project = config.get_project_config()
 
-    assert "name" in project
+    assert "app_name" in project
     assert "version" in project
 
 

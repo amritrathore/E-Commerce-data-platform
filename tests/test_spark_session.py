@@ -11,7 +11,7 @@ def test_spark_created():
 def test_spark_app_name():
     spark = SparkSessionManager.get_session()
 
-    assert spark.sparkContext.appName == "Ecommerce Data Warehouse"
+    assert spark.sparkContext.appName == "Ecommerce Data Platform"
 
 
 
