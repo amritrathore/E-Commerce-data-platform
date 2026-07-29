@@ -13,8 +13,8 @@ class ConfigLoader:
     ]
 
 
-    def __init__(self, config_path: str):
-        self._config_path = Path(config_path)
+    def __init__(self, config_path: str | Path | None = None):
+        self._config_path = Path(config_path) if config_path else self._defaults_config_path()
         self._config = self._load_config()
         self._validate()
 
@@ -90,3 +90,9 @@ class ConfigLoader:
 
     def get_project_config(self) -> dict:
         return self._config["project"]
+
+
+    @staticmethod
+    def _defaults_config_path() -> Path:
+        project_path = Path(__file__).resolve().parent.parent
+        return project_path / "config" / "config.yaml"

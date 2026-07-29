@@ -1,16 +1,14 @@
 import pytest
 from core.config_loader import ConfigLoader
 
-CONFIG_PATH = "D:/Project/E-Commerce-data-platform/config/config.yaml"
-
 def test_config_file_loads():
-    config = ConfigLoader(CONFIG_PATH)
+    config = ConfigLoader()
 
     assert config.config is not None
 
 
 def test_project_section_exists():
-    config = ConfigLoader(CONFIG_PATH)
+    config = ConfigLoader()
 
     project = config.get_project_config()
 
@@ -19,7 +17,7 @@ def test_project_section_exists():
 
 
 def test_spark_section_exists():
-    config = ConfigLoader(CONFIG_PATH)
+    config = ConfigLoader()
 
     spark = config.get_spark_config()
 
@@ -28,7 +26,7 @@ def test_spark_section_exists():
 
 
 def test_customer_dataset_exists():
-    config = ConfigLoader(CONFIG_PATH)
+    config = ConfigLoader()
 
     dataset = config.get_dataset('customers')
 
@@ -38,7 +36,7 @@ def test_customer_dataset_exists():
 
 
 def test_invalid_dataset():
-    config = ConfigLoader(CONFIG_PATH)
+    config = ConfigLoader()
 
     with pytest.raises(ValueError):
         config.get_dataset("invalid_table")

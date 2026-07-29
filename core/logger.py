@@ -8,7 +8,7 @@ def get_logger(name: str) -> logging.Logger:
     Returns a configured logger
     """
 
-    config = ConfigLoader("D:/Project/E-Commerce-data-platform/config/config.yaml")
+    config = ConfigLoader()
     log_config = config.get_logging_config()
 
     log_path = Path(log_config["path"])

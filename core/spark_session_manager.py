@@ -15,7 +15,7 @@ class SparkSessionManager:
         if cls._spark is not None:
             return cls._spark
 
-        config = ConfigLoader("D:/Project/E-Commerce-data-platform/config/config.yaml")
+        config = ConfigLoader()
 
         spark_config = config.get_spark_config()
 
