@@ -5,23 +5,34 @@ from core.config_loader import ConfigLoader
 
 def get_logger(name: str) -> logging.Logger:
     """
-    Returns a configured logger
+    Creates and returns a configured application logger.
+
+    All modules write to the same log file.
     """
 
     config = ConfigLoader()
     log_config = config.get_logging_config()
 
-    log_path = Path(log_config["path"])
-    log_file = log_path / log_config["file"]
-
-    log_path.mkdir(parents=True, exist_ok=True)
-
     logger = logging.getLogger(name)
 
-    if not logger.hasHandlers:
+    log_level = getattr(
+        logging,
+        log_config.get("level", "INFO").upper()
+    )
+
+    logger.setLevel(log_level)
+
+    # Prevent adding duplicate handlers
+    if logger.handlers:
         return logger
-    
-    logger.setLevel(getattr(logging, log_config["level"].upper()))
+
+    log_path = Path(log_config.get("path", "logs"))
+    log_file = log_path / log_config.get("file", "etl.log")
+
+    log_path.mkdir(
+        parents=True, 
+        exist_ok=True
+    )
 
     formatter = logging.Formatter(
         "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
