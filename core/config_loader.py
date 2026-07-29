@@ -1,5 +1,6 @@
 from pathlib import Path
 import yaml
+from typing import Any
 
 
 class ConfigLoader:
@@ -20,33 +21,42 @@ class ConfigLoader:
 
 
     @property
-    def config(self) -> dict :
+    def config(self) -> dict[str, Any] :
         return self._config
 
 
     def _load_config(self) -> dict:
 
         """
-        Read the YAML Configuration file.
+        Read the YAML configuration file.
 
         Returns:
-            dict: Parsed YAML configuration.
+            dict: Parsed configuration.
 
         Raises:
-            FileNotFoundError: If Config file doesn't exist.
-            ValueError: If YAML is empty.
+            FileNotFoundError:
+                If the configuration file doesn't exist.
+
+            ValueError:
+                If the YAML file is empty.
+
+            RuntimeError:
+                If the YAML syntax is invalid.
         """
 
         if not self._config_path.exists():
             raise FileNotFoundError(f"Configuration file not found : {self._config_path}")
-        
-        with self._config_path.open("r", encoding="utf-8") as file:
-            return yaml.safe_load(file)
+
+        try:
+            with self._config_path.open("r", encoding="utf-8") as file:
+                config = yaml.safe_load(file)
+        except yaml.YAMLError as ex:
+            raise RuntimeError(f"Invalid YAML configuration: {self._config_path}") from ex
         
         if config is None:
             raise ValueError("Configuration file is empty.")
         
-        return self.config
+        return config
 
 
     def _validate(self) -> None:
@@ -62,8 +72,23 @@ class ConfigLoader:
                 f"Missing configuration sections: {missing_section}"
             )
 
+        if not isinstance(self.get_datasets(), dict):
+            raise ValueError("datasets is not dict type")
 
-    def get_dataset(self, dataset_name: str):
+
+    def get_datasets(self):
+        return self.config["datasets"]
+
+
+    def get_metadata(self):
+        return self.config.get("metadata", {})
+
+
+    def get_file_defaults(self):
+        return self.config.get("file", {})
+    
+
+    def get_dataset(self, dataset_name: str) -> dict[str, Any]:
 
         """
         Return configuration for a dataset.
@@ -72,7 +97,7 @@ class ConfigLoader:
             config.get_dataset("customers")
         """
 
-        datasets = self._config["datasets"]
+        datasets = self.get_datasets()
 
         if dataset_name not in datasets:
             raise ValueError(f"Dataset '{dataset_name}' not found.")
@@ -80,15 +105,15 @@ class ConfigLoader:
         return datasets[dataset_name]
 
     
-    def get_spark_config(self) -> dict:
+    def get_spark_config(self) -> dict[str,Any]:
         return self._config["spark"]
 
     
-    def get_logging_config(self) -> dict:
+    def get_logging_config(self) -> dict[str, Any]:
         return self._config["logging"]
     
 
-    def get_project_config(self) -> dict:
+    def get_project_config(self) -> dict[str, Any]:
         return self._config["project"]
 
 
