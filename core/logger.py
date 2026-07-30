@@ -17,7 +17,7 @@ def get_logger(name: str) -> logging.Logger:
 
     log_level = getattr(
         logging,
-        log_config.get("level", "INFO").upper()
+        log_config.get("level").upper()
     )
 
     logger.setLevel(log_level)
@@ -26,7 +26,7 @@ def get_logger(name: str) -> logging.Logger:
     if logger.handlers:
         return logger
 
-    log_path = Path(log_config.get("path", "logs"))
+    log_path = Path(log_config.get("path"))
     log_file = log_path / log_config.get("file", "etl.log")
 
     log_path.mkdir(
