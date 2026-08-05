@@ -1,4 +1,6 @@
 from pyspark.sql import SparkSession
+import os
+import sys
 
 from core.config_loader import ConfigLoader
 from core.logger import get_logger
@@ -18,11 +20,19 @@ class SparkSessionManager:
         config = ConfigLoader()
 
         spark_config = config.get_spark_config()
+
+        python_path = sys.executable
+
+        os.environ["PYSPARK_PYTHON"] = python_path
+        os.environ["PYSPARK_DRIVER_PYTHON"] = python_path
+
         try:
             builder = (
                 SparkSession.builder
                 .appName(spark_config["app_name"])
                 .master(spark_config["master"])
+                .config("spark.pyspark.python", python_path)
+                .config("spark.pyspark.driver.python", python_path)
             )
 
             for key, value in spark_config.get("config", {}).items():
