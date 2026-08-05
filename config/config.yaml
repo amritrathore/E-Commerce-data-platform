@@ -41,12 +41,12 @@ datasets:
     header: true
     validation:
       mandatory_columns:
-        - customerID
-        - customerName
-        - Email
+        - customer_id
+        - first_name
+        - email
       
       duplicate_keys:
-        -CustomerID
+        - customer_id
       
       max_bad_records_percent: 5
 
