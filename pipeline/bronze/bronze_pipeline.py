@@ -51,7 +51,7 @@ class BronzePipeline:
 
         except Exception:
             self.logger.exception(f"Bronze pipeline failed for '{dataset_name}'.")
-        raise
+            raise
 
 
     def _add_metadata(self, df: DataFrame, batch_id: str) -> DataFrame:
