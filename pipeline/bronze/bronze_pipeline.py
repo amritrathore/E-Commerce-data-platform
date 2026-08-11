@@ -18,8 +18,8 @@ class BronzePipeline:
 
     def __init__(
             self,
-            reader: CsvReader | None = None,
-            writer: ParquetWriter | None = None):
+            reader: BaseReader | None = None,
+            writer: BaseWriter | None = None):
         self.reader = reader or CsvReader()
         self.writer = writer or ParquetWriter()
         self.logger = get_logger(self.__class__.__name__)

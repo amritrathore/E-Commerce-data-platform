@@ -26,6 +26,11 @@ class SparkSessionManager:
         os.environ["PYSPARK_PYTHON"] = python_path
         os.environ["PYSPARK_DRIVER_PYTHON"] = python_path
 
+        hadoop_home = os.environ.get("HADOOP_HOME")
+
+        if hadoop_home:
+            os.environ["hadoop.home.dir"] = hadoop_home
+
         try:
             builder = (
                 SparkSession.builder
