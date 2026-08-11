@@ -1,5 +1,5 @@
 from core.config_loader import ConfigLoader
-from logger import get_logger
+from core.logger import get_logger
 
 config = ConfigLoader()
 
