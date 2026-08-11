@@ -47,7 +47,7 @@ class BronzePipeline:
                 "bronze"
             )
 
-            self.logger.info("Bronze pipeline completed successfully for '{dataset_name}'.")
+            self.logger.info(f"Bronze pipeline completed successfully for '{dataset_name}'.")
 
         except Exception:
             self.logger.exception(f"Bronze pipeline failed for '{dataset_name}'.")
