@@ -6,6 +6,10 @@ from framework.writer.base_writer import BaseWriter
 from framework.writer.parquet_writer import ParquetWriter
 from framework.validation.validator_engine import ValidatorEngine
 from framework.transformation.transformer_engine import TransformerEngine
+from framework.transformation.transformer_factory import TransformerFactory
+from framework.transformation.transformer_provider import TransformerProvider
+
+from core.config_loader import ConfigLoader
 from core.logger import get_logger
 from pyspark.sql import DataFrame
 
@@ -17,12 +21,12 @@ class SilverPipeline:
             reader: BaseReader | None = None,
             writer: BaseWriter | None = None, 
             validator_engine: ValidatorEngine | None = None,
-            transformer_engine: TransformerEngine | None = None):
+            transformer_provider: TransformerProvider  | None = None):
     
         self.reader = reader or ParquetReader(layer="bronze")
         self.writer = writer or ParquetWriter()
         self.validator_engine = validator_engine or ValidatorEngine([])
-        self.transformer_engine = transformer_engine or TransformerEngine([])
+        self.transformer_provider = transformer_provider or TransformerProvider()
 
         self.logger = get_logger(self.__class__.__name__)
 
@@ -61,9 +65,13 @@ class SilverPipeline:
                 )
 
 
+            transformers = self.transformer_provider.get_transformers(dataset_name)
+
+            transformer_engine = TransformerEngine(transformers)
+
             # Transform valid records
 
-            transformed_df = self.transformer_engine.transform(validation_result.valid_df, dataset_name)
+            transformed_df = transformer_engine.transform(validation_result.valid_df, dataset_name)
 
             # Write Silver data
             
@@ -77,3 +85,23 @@ class SilverPipeline:
         except Exception:
             self.logger.exception(f"Silver pipeline failed for '{dataset_name}'.")
             raise
+
+
+    def _create_transformer_engine(self, dataset_name: str) -> TransformerEngine:
+
+        config = ConfigLoader()
+
+        dataset_config = config.get_dataset(dataset_name)
+
+        transformation_configs = (
+            dataset_config.get("transformations",[])
+            )
+
+        transformers = [
+            TransformerFactory.create(transformation_config)
+            for transformation_config in transformation_configs
+        ]
+
+        return TransformerEngine(
+            transformers
+        )
