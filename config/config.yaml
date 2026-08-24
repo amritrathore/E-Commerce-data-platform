@@ -50,6 +50,27 @@ datasets:
       
       max_bad_records_percent: 5
 
+    transformations:
+      - type: trim
+
+      - type: email_normalizer
+        columns:
+          - email
+
+      - type: date_normalizer
+        columns:
+          - signup_datetime
+          - date_of_birth
+          - last_modified_date
+
+      - type: standardization
+        mappings:
+          gender:
+            m: Male
+            male: Male
+            f: Female
+            female: Female
+
   order_items:
     source: data/source/order_items.csv
     bronze: data/bronze/order_items

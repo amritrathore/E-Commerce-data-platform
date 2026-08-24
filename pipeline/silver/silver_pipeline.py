@@ -6,12 +6,9 @@ from framework.writer.base_writer import BaseWriter
 from framework.writer.parquet_writer import ParquetWriter
 from framework.validation.validator_engine import ValidatorEngine
 from framework.transformation.transformer_engine import TransformerEngine
-from framework.transformation.transformer_factory import TransformerFactory
 from framework.transformation.transformer_provider import TransformerProvider
 
-from core.config_loader import ConfigLoader
 from core.logger import get_logger
-from pyspark.sql import DataFrame
 
 
 class SilverPipeline:
@@ -85,23 +82,3 @@ class SilverPipeline:
         except Exception:
             self.logger.exception(f"Silver pipeline failed for '{dataset_name}'.")
             raise
-
-
-    def _create_transformer_engine(self, dataset_name: str) -> TransformerEngine:
-
-        config = ConfigLoader()
-
-        dataset_config = config.get_dataset(dataset_name)
-
-        transformation_configs = (
-            dataset_config.get("transformations",[])
-            )
-
-        transformers = [
-            TransformerFactory.create(transformation_config)
-            for transformation_config in transformation_configs
-        ]
-
-        return TransformerEngine(
-            transformers
-        )
