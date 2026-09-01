@@ -33,7 +33,7 @@ class StandardizationTransformer(BaseTransformer):
             df = df.withColumn(
                 column,
                 F.coalesce(
-                    mapping_expression.getItem(normalized_column),
+                    mapping_expression[normalized_column],
                     F.col(column)
                 )
             )

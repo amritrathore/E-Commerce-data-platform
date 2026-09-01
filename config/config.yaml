@@ -54,8 +54,7 @@ datasets:
       - type: trim
 
       - type: email_normalizer
-        columns:
-          - email
+        column: email
 
       - type: date_normalizer
         columns:
