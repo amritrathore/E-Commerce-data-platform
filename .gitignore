@@ -1,3 +1,22 @@
-# Python bytecode
-*.pyc
+# Generated data layers
+data/bronze/
+data/silver/
+data/gold/
+data/quarantine/
+
+# Spark temporary/output files
+*.crc
+_SUCCESS
+
+# Logs
+logs/
+
+# Python
 __pycache__/
+*.pyc
+
+# Pytest
+.pytest_cache/
+
+# IDE
+.vscode/
