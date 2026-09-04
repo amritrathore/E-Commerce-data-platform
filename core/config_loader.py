@@ -117,6 +117,14 @@ class ConfigLoader:
         return self._config["project"]
 
 
+    def get_enabled_datasets(self) -> list[str]:
+        return [
+            dataset_name
+            for dataset_name, dataset_config in self.get_datasets().items()
+            if dataset_config.get("enabled", False)
+        ]
+
+
     @staticmethod
     def _defaults_config_path() -> Path:
         project_path = Path(__file__).resolve().parent.parent

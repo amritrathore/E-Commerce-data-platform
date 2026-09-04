@@ -82,3 +82,18 @@ def test_metadata_exists():
     assert len(metadata) > 0
     assert metadata["owner"] == "Amrit"
     assert metadata["pipeline"] == "Bronze"
+
+
+def test_get_enabled_datasets():
+    config = ConfigLoader()
+    enabled_datasets = config.get_enabled_datasets()
+    assert "customers" in enabled_datasets
+
+
+def test_only_customers_enabled():
+
+    config_loader = ConfigLoader()
+
+    enabled_datasets = config_loader.get_enabled_datasets()
+
+    assert enabled_datasets == ["customers"]

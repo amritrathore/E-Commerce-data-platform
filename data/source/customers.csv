@@ -1,5 +1,5 @@
 customer_id,first_name,last_name,city,state,address,address_type,signup_datetime,email,phone_number,gender,date_of_birth,last_modified_date,is_active,postal_code,country
-100,Priya,Yadav,Jaipur,Rajasthan,"190, Shastri Nagar",Home,2023-05-23 23:06:00,priya.yadav100@example.com,9193349856,Others,1988-01-01,2024-02-26 23:06:00,true,302001,India
+100,Priya,Yadav,Delhi,Delhi,"190, Shastri Nagar",Home,2023-05-23 23:06:00,priya.yadav100@example.com,9193349856,Others,1988-01-01,2024-02-26 23:06:00,true,302001,India
 101,Garima,Mehta,Delhi,Delhi,"7, Civil Lines",Home,2024-12-19 17:26:00,garima.mehta101@example.com,9582334538,Others,1983-01-25,2025-04-10 17:26:00,true,110001,India
 102,Rohit,Singh,Kota,Rajasthan,"72, Malviya Nagar",Home,2025-02-20 10:06:00,rohit.singh102@example.com,9507943839,Male,1986-06-20,2025-04-08 10:06:00,true,324001,India
 103,Ashish,Verma,Delhi,Delhi,"32, Tonk Road",Home,2023-10-28 20:39:00,ashish.verma103@example.com,9719927151,Male,1997-02-02,2024-04-30 20:39:00,true,110001,India
@@ -22,7 +22,7 @@ customer_id,first_name,last_name,city,state,address,address_type,signup_datetime
 120,Rani,Verma,Delhi,Delhi,"236, Malviya Nagar",Home,2024-06-04 02:54:00,rani.verma120@example.com,9173574218,Others,1977-11-28,2024-09-07 02:54:00,true,110001,India
 121,Manju,Agarwal,Ajmer,Rajasthan,"149, MG Road",Home,2024-03-05 21:37:00,manju.agarwal121@example.com,9661333669,Female,2004-05-07,2024-12-19 21:37:00,true,305001,India
 122,Rajiv,Kumar,Kota,Rajasthan,"102, Malviya Nagar",Home,2023-11-04 14:20:00,rajiv.kumar122@example.com,9110002396,Female,1994-10-04,2023-12-11 14:20:00,true,324001,India
-123,Amber,Mehta,Kota,Rajasthan,"34, Gandhi Path",Office,2025-06-19 07:23:00,amber.mehta123@example.com,9269379374,Female,2001-09-23,2025-06-30 00:00:00,true,324001,India
+,Amber,Mehta,Kota,Rajasthan,"34, Gandhi Path",Office,2025-06-19 07:23:00,amber.mehta123@example.com,9269379374,Female,2001-09-23,2025-06-30 00:00:00,true,324001,India
 124,Nitin,Mehta,Jaipur,Rajasthan,"171, Shastri Nagar",Office,2023-04-17 04:16:00,nitin.mehta124@example.com,9214929002,Others,1992-03-09,2023-06-15 04:16:00,true,302001,India
 125,Amber,Gupta,Ajmer,Rajasthan,"176, Shastri Nagar",Home,2023-09-15 01:05:00,amber.gupta125@example.com,9990505735,Female,1976-01-11,2024-04-18 01:05:00,true,305001,India
 126,Priya,Sharma,Ajmer,Rajasthan,"190, Bapu Nagar",Home,2024-03-13 17:00:00,priya.sharma126@example.com,9180792472,Others,2003-03-18,2024-05-09 17:00:00,true,305001,India
@@ -34,7 +34,7 @@ customer_id,first_name,last_name,city,state,address,address_type,signup_datetime
 132,Bablu,Yadav,Agra,Uttar Pradesh,"231, Civil Lines",Home,2024-12-26 13:00:00,bablu.yadav132@example.com,9965984448,Others,1996-12-24,2025-06-30 00:00:00,true,282001,India
 133,Amber,Gupta,Agra,Uttar Pradesh,"18, Gandhi Path",Home,2024-11-10 03:46:00,amber.gupta133@example.com,9644518647,Female,1996-07-11,2025-04-12 03:46:00,true,282001,India
 134,Sukhdev,Mehta,Ajmer,Rajasthan,"50, Tonk Road",Home,2024-01-24 21:47:00,sukhdev.mehta134@example.com,9760904107,Others,1984-07-18,2024-04-22 21:47:00,true,305001,India
-135,Sukhdev,Sharma,Ajmer,Rajasthan,"111, Gandhi Path",Home,2024-03-28 21:13:00,sukhdev.sharma135@example.com,9608079792,Others,1980-11-03,2024-12-14 21:13:00,true,305001,India
+135,Sukhdev,Sharma,Ajmer,Rajasthan,"111, Gandhi Path",Home,2024-03-28 21:13:00,,9608079792,Others,1980-11-03,2024-12-14 21:13:00,true,305001,India
 136,Neha,Agarwal,Kota,Rajasthan,"24, Civil Lines",Home,2023-08-19 06:09:00,neha.agarwal136@example.com,9149621604,Male,1990-10-28,2023-08-31 06:09:00,true,324001,India
 137,Pawan,Singh,Udaipur,Rajasthan,"148, Civil Lines",Home,2024-01-29 15:25:00,pawan.singh137@example.com,9258453521,Others,1997-01-25,2024-06-01 15:25:00,true,313001,India
 138,Kiran,Yadav,Agra,Uttar Pradesh,"57, Malviya Nagar",Office,2024-12-13 16:29:00,kiran.yadav138@example.com,9698509918,Male,2004-02-15,2025-01-07 16:29:00,true,282001,India

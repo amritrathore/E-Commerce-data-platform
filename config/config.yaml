@@ -19,6 +19,7 @@ logging:
 
 datasets:
   categories:
+    enabled: false
     source: data/source/categories.csv
     bronze: data/bronze/categories
     silver: data/silver/categories
@@ -30,6 +31,7 @@ datasets:
     header: true
 
   customers:
+    enabled: true
     source: data/source/customers.csv
     bronze: data/bronze/customers
     silver: data/silver/customers
@@ -71,6 +73,7 @@ datasets:
             female: Female
 
   order_items:
+    enabled: false
     source: data/source/order_items.csv
     bronze: data/bronze/order_items
     silver: data/silver/order_items
@@ -82,6 +85,7 @@ datasets:
     header: true
 
   orders:
+    enabled: false
     source: data/source/orders.csv
     bronze: data/bronze/orders
     silver: data/silver/orders
@@ -93,6 +97,7 @@ datasets:
     header: true
 
   products:
+    enabled: false
     source: data/source/products.csv
     bronze: data/bronze/products
     silver: data/silver/products
@@ -104,6 +109,7 @@ datasets:
     header: true
 
   wishlist:
+    enabled: false
     source: data/source/wishlist.csv
     bronze: data/bronze/wishlist
     silver: data/silver/wishlist

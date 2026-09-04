@@ -16,14 +16,12 @@ from pipeline.gold.gold_pipeline import GoldPipeline
 logger = get_logger(__name__)
 
 
-def run_customer_pipeline() -> None:
+def run_pipeline(dataset_name: str, config: ConfigLoader):
 
-    dataset_name = "customers"
-
-    config = ConfigLoader()
-
-    # Initialize Spark before starting the pipeline:
-    SparkSessionManager.get_session()
+    logger.info(
+        f"Starting end-to-end pipeline "
+        f"for dataset '{dataset_name}'."
+    )
 
     # Customers validation chain.
     validator_engine = ValidatorEngine([
@@ -47,25 +45,33 @@ def run_customer_pipeline() -> None:
 
     logger.info(f"Starting end-to-end pipeline for dataset '{dataset_name}'.")
 
-    try:
-        bronze_pipeline.run(dataset_name=dataset_name)
+    bronze_pipeline.run(dataset_name=dataset_name)
+    silver_pipeline.run(dataset_name=dataset_name)
+    gold_pipeline.run(dataset_name=dataset_name)
 
-        silver_pipeline.run(dataset_name=dataset_name)
-
-        gold_pipeline.run(dataset_name=dataset_name)
-
-        logger.info(f"Pipeline completed successfully for dataset '{dataset_name}'.")
-
-    except Exception:
-        logger.exception(f"Pipeline failed for dataset '{dataset_name}'.")
-        raise
+    logger.info(f"Pipeline completed successfully for dataset '{dataset_name}'.")
 
 
 def main() -> None:
 
-    try:
-        run_customer_pipeline()
+    config = ConfigLoader()
 
+    try:
+        # Initialize Spark before starting the pipeline:
+        SparkSessionManager.get_session()
+
+        enabled_datasets = (
+            config.get_enabled_datasets()
+        )
+
+        logger.info(
+            f"Enabled datasets: "
+            f"{enabled_datasets}"
+        )
+
+        for dataset_name in enabled_datasets:
+            run_pipeline(dataset_name, config)
+            
     finally:
         SparkSessionManager.stop_session()
 
