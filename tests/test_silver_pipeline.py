@@ -1,6 +1,7 @@
-import datetime
+from datetime import datetime
 from pyspark.sql.types import TimestampType
 
+from core.config_loader import ConfigLoader
 from core.spark_session_manager import SparkSessionManager
 
 from framework.reader.parquet_reader import ParquetReader
@@ -13,6 +14,29 @@ from framework.validation.duplicate_validator import DuplicateValidator
 from framework.transformation.transformer_provider import TransformerProvider
 
 from pipeline.silver.silver_pipeline import SilverPipeline
+
+
+class FakeReader:
+
+    def __init__(self, df):
+        self.df = df
+
+    def read(self, dataset_name):
+        return self.df
+    
+
+class FakeWriter:
+
+    def __init__(self):
+        self.writes = {}
+
+    def write(
+        self,
+        df,
+        dataset_name,
+        layer,
+    ):
+        self.writes[layer] = df
 
 
 # Renamed to MockConfig to avoid PytestCollectionWarning
@@ -152,3 +176,404 @@ def test_silver_pipeline_validates_transforms_and_writes(tmp_path):
     assert rows["C002"].first_name == "John"
     assert rows["C002"].email == "john@test.com"
     assert rows["C002"].Gender == "Female"
+
+
+def test_silver_pipeline_products_mandatory_validation():
+
+    spark = SparkSessionManager.get_session()
+
+    product_columns = [
+        "product_id",
+        "sku",
+        "product_name",
+        "brand",
+        "description",
+        "listing_date",
+        "update_date",
+        "is_active",
+        "category_id",
+        "sub_category_id",
+    ]
+
+    product_data = [
+        # Valid row
+        (
+            "P1001",
+            "LOG-M185",
+            "Wireless Mouse",
+            "Logitech",
+            "Ergonomic wireless mouse",
+            datetime(2024, 1, 10, 10, 15),
+            datetime(2026, 8, 20, 14, 30),
+            True,
+            "CAT01",
+            "SUBCAT01",
+        ),
+
+        # Invalid: missing product_id
+        (
+            None,
+            "RD-K552",
+            "Mechanical Keyboard",
+            "Redragon",
+            "RGB keyboard",
+            datetime(2024, 2, 15, 12, 0),
+            datetime(2026, 8, 21, 9, 45),
+            True,
+            "CAT01",
+            "SUBCAT02",
+        ),
+
+        # Invalid: missing product_name
+        (
+            "P1003",
+            "ANK-HUB7",
+            None,
+            "Anker",
+            "USB-C hub",
+            datetime(2024, 3, 1, 9, 30),
+            datetime(2026, 8, 22, 11, 20),
+            True,
+            "CAT01",
+            "SUBCAT03",
+        ),
+
+        # Invalid: missing category_id
+        (
+            "P1004",
+            "NK-RUN-01",
+            "Running Shoes",
+            "Nike",
+            "Lightweight running shoes",
+            datetime(2024, 3, 20, 8, 45),
+            datetime(2026, 8, 23, 16, 10),
+            True,
+            None,
+            "SUBCAT04",
+        ),
+    ]
+
+    bronze_df = spark.createDataFrame(
+        product_data,
+        product_columns,
+    )
+
+    reader = FakeReader(bronze_df)
+
+    writer = FakeWriter()
+
+    config = ConfigLoader()
+
+    validator_engine = ValidatorEngine([
+        MandatoryValidator(config=config),
+    ])
+
+    pipeline = SilverPipeline(
+        reader=reader,
+        writer=writer,
+        validator_engine=validator_engine,
+    )
+
+    pipeline.run("products")
+
+    assert "silver" in writer.writes
+    assert "quarantine" in writer.writes
+
+    silver_df = writer.writes["silver"]
+    quarantine_df = writer.writes["quarantine"]
+
+    assert silver_df.count() == 1
+    assert quarantine_df.count() == 3
+
+    silver_row = silver_df.collect()[0]
+
+    assert silver_row.product_id == "P1001"
+
+    quarantine_rows = quarantine_df.collect()
+
+    quarantine_product_ids = {
+        row.product_id
+        for row in quarantine_rows
+    }
+
+    assert None in quarantine_product_ids
+    assert "P1003" in quarantine_product_ids
+    assert "P1004" in quarantine_product_ids
+
+
+def test_silver_pipeline_products_duplicate_validation():
+
+    spark = SparkSessionManager.get_session()
+
+    product_columns = [
+        "product_id",
+        "sku",
+        "product_name",
+        "brand",
+        "description",
+        "listing_date",
+        "update_date",
+        "is_active",
+        "category_id",
+        "sub_category_id",
+    ]
+
+    product_data = [
+        (
+            "P1001",
+            "LOG-M185",
+            "Wireless Mouse",
+            "Logitech",
+            "Ergonomic wireless mouse",
+            datetime(2024, 1, 10, 10, 15),
+            datetime(2026, 8, 20, 14, 30),
+            True,
+            "CAT01",
+            "SUBCAT01",
+        ),
+        (
+            "P1002",
+            "RD-K552",
+            "Mechanical Keyboard",
+            "Redragon",
+            "RGB keyboard",
+            datetime(2024, 2, 15, 12, 0),
+            datetime(2026, 8, 21, 9, 45),
+            True,
+            "CAT01",
+            "SUBCAT02",
+        ),
+        (
+            "P1001",
+            "LOG-M186",
+            "Wireless Mouse Updated",
+            "Logitech",
+            "Duplicate product id",
+            datetime(2024, 1, 10, 10, 15),
+            datetime(2026, 8, 22, 10, 0),
+            True,
+            "CAT01",
+            "SUBCAT01",
+        ),
+    ]
+
+    bronze_df = spark.createDataFrame(
+        product_data, 
+        product_columns
+    )
+
+    reader = FakeReader(bronze_df)
+    writer = FakeWriter()
+
+    config = ConfigLoader()
+
+    validator_engine = ValidatorEngine([
+        DuplicateValidator(config=config),
+    ])
+
+    pipeline = SilverPipeline(
+        reader=reader,
+        writer=writer,
+        validator_engine=validator_engine
+    )
+
+    pipeline.run("products")
+
+    silver_df = writer.writes["silver"]
+    quarantine_df = writer.writes["quarantine"]
+
+    assert silver_df.count() == 2
+    assert quarantine_df.count() == 1
+
+    duplicate_row = quarantine_df.collect()[0]
+
+    assert duplicate_row.product_id == "P1001"
+    assert "Duplicate record" in duplicate_row.validation_reason
+
+
+def test_silver_pipeline_products_trim_transformation():
+
+    spark = SparkSessionManager.get_session()
+
+    product_columns = [
+        "product_id",
+        "sku",
+        "product_name",
+        "brand",
+        "description",
+        "listing_date",
+        "update_date",
+        "is_active",
+        "category_id",
+        "sub_category_id",
+    ]
+
+    product_data = [
+        (
+            "P1001",
+            "LOG-M185",
+            " Wireless Mouse ",
+            " Logitech ",
+            "Ergonomic wireless mouse",
+            datetime(2024, 1, 10, 10, 15),
+            datetime(2026, 8, 20, 14, 30),
+            True,
+            " CAT01 ",
+            "SUBCAT01",
+        ),
+        (
+            "P1002",
+            "RD-K552",
+            " Mechanical Keyboard  ",
+            "Redragon ",
+            "RGB keyboard",
+            datetime(2024, 2, 15, 12, 0),
+            datetime(2026, 8, 21, 9, 45),
+            True,
+            " CAT01",
+            "SUBCAT02",
+        ),
+    ]
+
+    bronze_df = spark.createDataFrame(
+        product_data, 
+        product_columns
+    )
+
+    reader = FakeReader(bronze_df)
+    writer = FakeWriter()
+
+    config = ConfigLoader()
+
+    transformer_provider = TransformerProvider(config_loader=config)
+
+    pipeline = SilverPipeline(
+        reader=reader,
+        writer=writer,
+        transformer_provider=transformer_provider
+    )
+
+    pipeline.run("products")
+
+    silver_df = writer.writes["silver"]
+
+    assert silver_df.count() == 2
+
+    rows = {
+        row.product_id: row
+        for row in silver_df.collect()
+    }
+
+    row_1001 = rows["P1001"]
+
+    assert row_1001.product_name == "Wireless Mouse"
+    assert row_1001.brand == "Logitech"
+    assert row_1001.category_id == "CAT01"
+
+    row_1002 = rows["P1002"]
+
+    assert row_1002.product_name == "Mechanical Keyboard"
+    assert row_1002.brand == "Redragon"
+    assert row_1002.category_id == "CAT01"
+
+
+def test_silver_pipeline_products_date_normalizer_transformation():
+
+    spark = SparkSessionManager.get_session()
+
+    product_columns = [
+        "product_id",
+        "sku",
+        "product_name",
+        "brand",
+        "description",
+        "listing_date",
+        "update_date",
+        "is_active",
+        "category_id",
+        "sub_category_id",
+    ]
+
+    product_data = [
+        (
+            "P1001",
+            "LOG-M185",
+            "Wireless Mouse",
+            "Logitech",
+            "Ergonomic wireless mouse",
+            "2024-01-10 10:15",
+            "2026-08-20 14:30",
+            True,
+            "CAT01",
+            "SUBCAT01",
+        ),
+        (
+            "P1002",
+            "RD-K552",
+            "Mechanical Keyboard",
+            "Redragon",
+            "RGB keyboard",
+            "2024-02-15 12:00:00",
+            "2026-08-21 09:45:00",
+            True,
+            "CAT01",
+            "SUBCAT02",
+        ),
+    ]
+
+    bronze_df = spark.createDataFrame(
+        product_data, 
+        product_columns
+    )
+
+    reader = FakeReader(bronze_df)
+    writer = FakeWriter()
+
+    config = ConfigLoader()
+
+    transformer_provider = TransformerProvider(config_loader=config)
+
+    pipeline = SilverPipeline(
+        reader=reader,
+        writer=writer,
+        transformer_provider=transformer_provider
+    )
+
+    pipeline.run("products")
+
+    silver_df = writer.writes["silver"]
+
+    assert silver_df.count() == 2
+
+    schema_by_column = {
+        field.name: field.dataType.simpleString()
+        for field in silver_df.schema.fields
+    }
+
+    assert schema_by_column["listing_date"] == "timestamp"
+    assert schema_by_column["update_date"] == "timestamp"
+
+    rows = {
+        row.product_id: row
+        for row in silver_df.collect()
+    }
+
+    row_1001 = rows["P1001"]
+
+    assert row_1001.listing_date == datetime(
+        2024, 1, 10, 10, 15
+    )
+
+    assert row_1001.update_date == datetime(
+        2026, 8, 20, 14, 30
+    )
+
+    row_1002 = rows["P1002"]
+
+    assert row_1002.listing_date == datetime(
+        2024, 2, 15, 12, 0
+    )
+
+    assert row_1002.update_date == datetime(
+        2026, 8, 21, 9, 45
+    )

@@ -92,7 +92,6 @@ def test_customer_dimension_transformer_builds_dim_customer():
     assert row.is_current is True
 
 
-
 def test_customer_key_is_deterministic():
 
     spark = SparkSessionManager.get_session()
@@ -158,7 +157,6 @@ def test_customer_key_is_deterministic():
         first_result.customer_key
         == second_result.customer_key
     )
-
 
 
 def test_customer_key_changes_when_dimension_attribute_changes():

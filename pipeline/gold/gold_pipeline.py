@@ -35,7 +35,9 @@ class GoldPipeline:
 
     def run(
             self,
-            dataset_name: str)-> None:
+            dataset_name: str,
+            business_key: str,
+            version_key: str,)-> None:
 
         self.logger.info(
             f"Starting Gold pipeline for "
@@ -62,7 +64,8 @@ class GoldPipeline:
             final_gold_df = self.scd2_processor.process(
                 incoming_df=incoming_df,
                 existing_df=existing_df,
-                business_key="customer_id"
+                business_key=business_key,
+                version_key=version_key,
             )
 
             final_gold_df = final_gold_df.cache()

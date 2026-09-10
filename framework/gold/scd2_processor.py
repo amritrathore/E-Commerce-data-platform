@@ -8,7 +8,8 @@ class SCD2Processor:
             cls,
             incoming_df: DataFrame,
             existing_df: DataFrame | None,
-            business_key: str) -> DataFrame:
+            business_key: str,
+            version_key: str) -> DataFrame:
 
         # Initial load
         if existing_df is None:
@@ -43,15 +44,18 @@ class SCD2Processor:
             .select("incoming.*")
         )
 
-        # Existing customer with changed version hash/key
+        # Existing record with a changed version key
+
         changed_records_df = (
             comparison_df
             .filter(
                 (F.col(f"existing.{business_key}").isNotNull())
                 &
-                (F.col("incoming.customer_key") != F.col("existing.customer_key"))
+                (F.col(f"incoming.{version_key}") != F.col(f"existing.{version_key}"))
             )
         )
+
+        # Collect business keys whose current version has changed
 
         changed_business_key_df = (
             changed_records_df
@@ -63,7 +67,7 @@ class SCD2Processor:
             .distinct()
         )
 
-         # Expire old current versions
+        # Expire the existing current versions for changed business keys
 
         expired_records_df = (
             current_existing_df.alias("existing")
@@ -82,7 +86,7 @@ class SCD2Processor:
             )
         )
 
-        # New versions for changed customers
+        # Keep the incoming rows as the new current versions
 
         changed_new_versions_df = (
             changed_records_df

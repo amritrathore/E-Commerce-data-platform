@@ -48,6 +48,7 @@ def test_scd2_initial_load_returns_incoming_dataframe():
         incoming_df=incoming_df,
         existing_df=None,
         business_key="customer_id",
+        version_key="customer_key",
     )
 
     rows = result_df.collect()
@@ -102,6 +103,7 @@ def test_scd2_inserts_new_customer():
         incoming_df=incoming_df,
         existing_df=existing_df,
         business_key="customer_id",
+        version_key="customer_key",
     )
 
     rows = result_df.collect()
@@ -157,6 +159,7 @@ def test_scd2_keeps_unchanged_customer():
         incoming_df=incoming_df,
         existing_df=existing_df,
         business_key="customer_id",
+        version_key="customer_key",
     )
 
     rows = result_df.collect()
@@ -210,6 +213,7 @@ def test_scd2_expires_old_version_and_inserts_new_version():
         incoming_df=incoming_df,
         existing_df=existing_df,
         business_key="customer_id",
+        version_key="customer_key",
     )
 
     rows = result_df.collect()
@@ -285,6 +289,7 @@ def test_scd2_preserves_existing_history():
         incoming_df=incoming_df,
         existing_df=existing_df,
         business_key="customer_id",
+        version_key="customer_key",
     )
 
     rows = result_df.collect()

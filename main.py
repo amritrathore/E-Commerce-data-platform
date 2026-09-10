@@ -23,7 +23,7 @@ def run_pipeline(dataset_name: str, config: ConfigLoader):
         f"for dataset '{dataset_name}'."
     )
 
-    # Customers validation chain.
+    # validation chain.
     validator_engine = ValidatorEngine([
         MandatoryValidator(config=config),
         DuplicateValidator(config=config)
@@ -33,7 +33,7 @@ def run_pipeline(dataset_name: str, config: ConfigLoader):
     transformer_provider = TransformerProvider(config_loader=config)
 
     # Bronze:
-    # customers.csv -> Bronze paraquet
+    # csv -> Bronze paraquet
     bronze_pipeline = BronzePipeline()
 
     # Silver
@@ -47,7 +47,15 @@ def run_pipeline(dataset_name: str, config: ConfigLoader):
 
     bronze_pipeline.run(dataset_name=dataset_name)
     silver_pipeline.run(dataset_name=dataset_name)
-    gold_pipeline.run(dataset_name=dataset_name)
+
+    dataset_config = config.get_dataset(dataset_name)
+    gold_config = dataset_config["gold_config"]
+
+    gold_pipeline.run(
+        dataset_name=dataset_name, 
+        business_key= gold_config["business_key"], 
+        version_key= gold_config["version_key"]
+    )
 
     logger.info(f"Pipeline completed successfully for dataset '{dataset_name}'.")
 

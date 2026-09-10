@@ -1,12 +1,12 @@
 from framework.gold.base_gold_transformer import BaseGoldTransformer
-from framework.gold.customer_dimension_transformer import (
-    CustomerDimensionTransformer,
-    )
+from framework.gold.customer_dimension_transformer import CustomerDimensionTransformer
+from framework.gold.product_dimension_transformer import ProductDimensionTransformer
 
 class GoldTransformerFactory:
 
     _TRANSFORMERS = {
-        "customers": CustomerDimensionTransformer
+        "customers": CustomerDimensionTransformer,
+        "products": ProductDimensionTransformer,
     }
 
     @classmethod

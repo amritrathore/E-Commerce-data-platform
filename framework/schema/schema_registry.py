@@ -1,10 +1,12 @@
-from schemas.customers_schema import customer_schema
+from schemas.customer_schema import customer_schema
+from schemas.product_schema import product_schema
 from pyspark.sql.types import StructType
 
 class SchemaRegistry:
 
     _schemas = {
-        "customer_schema": customer_schema
+        "customer_schema": customer_schema,
+        "product_schema": product_schema
     }
 
 

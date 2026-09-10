@@ -72,6 +72,10 @@ datasets:
             f: Female
             female: Female
 
+    gold_config:
+      business_key: customer_id
+      version_key: customer_key
+
   order_items:
     enabled: false
     source: data/source/order_items.csv
@@ -97,16 +101,43 @@ datasets:
     header: true
 
   products:
-    enabled: false
+    enabled: true
     source: data/source/products.csv
     bronze: data/bronze/products
     silver: data/silver/products
     gold: data/gold/dim_products
     quarantine: data/quarantine/products
-    schema: products_schema
+    schema: product_schema
     format: csv
     delimiter: ","
     header: true
+    validation:
+      mandatory_columns:
+        - product_id
+        - sku
+        - product_name
+        - listing_date
+        - update_date
+        - is_active
+        - category_id
+        - sub_category_id
+
+      duplicate_keys:
+        - product_id
+      
+      max_bad_records_percent: 10
+
+    transformations:
+      - type: trim
+
+      - type: date_normalizer
+        columns:
+          - listing_date
+          - update_date
+
+    gold_config:
+      business_key: customer_id
+      version_key: customer_key
 
   wishlist:
     enabled: false

@@ -99,7 +99,11 @@ def test_gold_pipeline_transforms_and_writes_customer_dimension():
         writer=writer,
     )
 
-    pipeline.run("customers")
+    pipeline.run(
+        dataset_name="customers",
+        business_key="customer_id",
+        version_key="customer_key",
+    )
 
     assert writer.dataset_name == "customers"
     assert writer.layer == "gold"
@@ -222,7 +226,9 @@ def test_gold_pipeline_scd2_type():
         )
 
     pipeline.run(
-        dataset_name="customers"
+        dataset_name="customers",
+        business_key="customer_id",
+        version_key="customer_key",
     )
 
     result_df = writer.written_df
@@ -258,3 +264,124 @@ def test_gold_pipeline_scd2_type():
     # Changed version should have a new surrogate key
     assert new_row.customer_key != old_row.customer_key
 
+
+def test_gold_pipeline_products_scd2_changed_product():
+
+    spark = SparkSessionManager.get_session()
+
+    silver_columns = [
+        "product_id",
+        "sku",
+        "product_name",
+        "brand",
+        "description",
+        "listing_date",
+        "update_date",
+        "is_active",
+        "category_id",
+        "sub_category_id",
+    ]
+
+    incoming_data = [
+        (
+            "P1001",
+            "LOG-M185",
+            "Wireless Mouse",
+            "Logitech Pro",   # changed tracked attribute
+            "Ergonomic wireless mouse",
+            datetime(2024, 1, 10, 10, 15),
+            datetime(2026, 9, 10, 12, 0),
+            True,
+            "CAT01",
+            "SUBCAT01",
+        )
+    ]
+
+    gold_schema = StructType([
+        StructField("product_key", StringType(), False),
+        StructField("product_id", StringType(), False),
+        StructField("sku", StringType(), False),
+        StructField("product_name", StringType(), False),
+        StructField("brand", StringType(), True),
+        StructField("category_id", StringType(), False),
+        StructField("sub_category_id", StringType(), False),
+        StructField("listing_date", TimestampType(), False),
+        StructField("is_active", BooleanType(), False),
+        StructField("effective_from", TimestampType(), False),
+        StructField("effective_to", TimestampType(), True),
+        StructField("is_current", BooleanType(), False),
+    ])
+
+    existing_data = [
+        (
+            "old-product-key",
+            "P1001",
+            "LOG-M185",
+            "Wireless Mouse",
+            "Logitech",
+            "CAT01",
+            "SUBCAT01",
+            datetime(2024, 1, 10, 10, 15),
+            True,
+            datetime(2026, 9, 1, 10, 0),
+            None,
+            True,
+        )
+    ]
+
+    incoming_df = spark.createDataFrame(
+        incoming_data,
+        silver_columns,
+    )
+
+    existing_df = spark.createDataFrame(
+        existing_data,
+        schema=gold_schema,
+    )
+
+    reader = FakeReader(incoming_df)
+    gold_reader = FakeReader(existing_df)
+    writer = FakeWriter()
+
+    pipeline = GoldPipeline(
+        reader=reader,
+        gold_reader=gold_reader,
+        writer=writer,
+    )
+
+    pipeline.run(
+        dataset_name="products",
+        business_key="product_id",
+        version_key="product_key"
+    )
+
+    rows = writer.written_df.collect()
+
+    assert len(rows) == 2
+
+    old_row = next(
+        row
+        for row in rows
+        if row.product_key == "old-product-key"
+    )
+
+    new_row = next(
+        row
+        for row in rows
+        if row.product_key != "old-product-key"
+    )
+
+    # Old version should be expired
+    assert old_row.product_id == "P1001"
+    assert old_row.brand == "Logitech"
+    assert old_row.is_current is False
+    assert old_row.effective_to is not None
+
+    # New version should be current
+    assert new_row.product_id == "P1001"
+    assert new_row.brand == "Logitech Pro"
+    assert new_row.is_current is True
+    assert new_row.effective_to is None
+
+    # Tracked change should generate a new version key
+    assert new_row.product_key != old_row.product_key
