@@ -1,1 +1,201 @@
-order_id,order_date,customer_id,order_status,order_value,last_modified_date,
+order_id,customer_id,order_date,order_status,payment_method,shipping_address,shipping_city,shipping_state,shipping_postal_code,shipping_country,total_amount,currency,update_date
+ORD1001,141,2026-07-08 08:47:00,Returned,UPI,"36, Civil Lines",Noida,Uttar Pradesh,201301,India,8959.76,INR,2026-07-09 21:02:00
+ORD1002,102,2026-07-02 09:13:00,Confirmed,COD,"7, Banjara Hills",Navi Mumbai,Maharashtra,400703,India,3501.50,INR,2026-07-03 15:45:00
+ORD1003,138,2026-07-18 20:55:00,Shipped,Debit Card,"179, Vaishali Nagar",Kolkata,West Bengal,700016,India,2543.32,INR,2026-07-18 22:43:00
+ORD1004,149,2026-07-22 09:05:00,Cancelled,Debit Card,"217, Sector 15",Delhi,Delhi,110054,India,12155.14,INR,2026-07-24 10:11:00
+ORD1005,147,2026-07-30 16:07:00,Shipped,Credit Card,"76, Anna Salai",Lucknow,Uttar Pradesh,226010,India,10642.43,INR,2026-08-01 17:12:00
+,102,2026-08-12 11:49:00,Delivered,Debit Card,"222, Civil Lines",Noida,Uttar Pradesh,201301,India,6937.80,INR,2026-08-14 01:54:00
+ORD1007,123,2026-07-11 13:22:00,Cancelled,Credit Card,"180, Civil Lines",Bengaluru,Karnataka,560025,India,8128.56,INR,2026-07-12 17:04:00
+ORD1008,115,2026-07-11 15:24:00,Placed,Credit Card,"57, Sector 15",Lucknow,Uttar Pradesh,226010,India,12371.59,INR,2026-07-13 03:23:00
+ORD1009,120,2026-07-26 12:04:00,Confirmed,COD,"225, Sector 15",Navi Mumbai,Maharashtra,400703,India,6085.57,INR,2026-07-27 17:02:00
+ORD1010,142,2026-07-30 10:16:00,Returned,COD,"138, Residency Road",Lucknow,Uttar Pradesh,226010,India,13492.89,INR,2026-07-31 04:31:00
+ORD1011,125,2026-07-24 11:08:00,Placed,Credit Card,"194, MG Road",Pune,Maharashtra,411001,India,9504.83,INR,2026-07-27 05:39:00
+ORD1012,144,2026-07-28 17:04:00,Shipped,UPI,"120, Banjara Hills",Navi Mumbai,Maharashtra,400703,India,10284.18,INR,2026-07-30 19:28:00
+ORD1013,107,2026-08-13 16:48:00,Delivered,Credit Card,"29, Residency Road",Delhi,Delhi,110054,India,6942.42,INR,2026-08-15 04:37:00
+ORD1014,147,2026-08-26 19:16:00,Returned,Debit Card,"130, Civil Lines",Kolkata,West Bengal,700016,India,12664.62,INR,2026-08-29 13:04:00
+ORD1015,132,2026-08-08 11:09:00,Placed,Debit Card,"139, Banjara Hills",Kolkata,West Bengal,700016,India,7456.93,INR,2026-08-10 11:57:00
+ORD1016,107,2026-08-29 13:56:00,Placed,UPI,"62, Anna Salai",Jaipur,Rajasthan,302016,India,11045.64,INR,2026-08-31 06:11:00
+ORD1017,104,2026-08-18 16:49:00,Confirmed,Debit Card,"243, Banjara Hills",Chennai,Tamil Nadu,600020,India,8033.19,INR,2026-08-19 09:57:00
+ORD1018,139,2026-07-28 11:59:00,Delivered,Debit Card,"183, Residency Road",Noida,Uttar Pradesh,201301,India,6711.98,INR,2026-07-31 10:47:00
+ORD1019,,2026-07-29 09:15:00,Cancelled,Credit Card,"6, Anna Salai",Delhi,Delhi,110054,India,8929.49,INR,2026-07-30 14:19:00
+ORD1020,100,2026-07-05 19:40:00,Shipped,UPI,"232, MG Road",Pune,Maharashtra,411001,India,7833.80,INR,2026-07-06 03:54:00
+ORD1021,117,2026-08-12 15:13:00,Confirmed,COD,"148, Indiranagar",Navi Mumbai,Maharashtra,400703,India,12160.58,INR,2026-08-15 13:21:00
+ORD1022,112,2026-07-07 09:42:00,Returned,UPI,"106, Indiranagar",Hyderabad,Telangana,500034,India,10182.13,INR,2026-07-09 18:04:00
+ORD1023,142,2026-07-07 08:25:00,Confirmed,COD,"64, Park Street",Pune,Maharashtra,411001,India,2317.69,INR,2026-07-09 05:16:00
+ORD1024,111,2026-07-18 15:15:00,Returned,UPI,"26, MG Road",Lucknow,Uttar Pradesh,226010,India,14542.69,INR,2026-07-19 01:43:00
+ORD1025,149,2026-08-24 11:10:00,Placed,Credit Card,"55, Vaishali Nagar",Chennai,Tamil Nadu,600020,India,5839.85,INR,2026-08-26 16:41:00
+ORD1026,124,2026-07-17 20:50:00,Returned,COD,"179, Banjara Hills",Hyderabad,Telangana,500034,India,2533.25,INR,2026-07-20 08:08:00
+ORD1027,118,2026-07-14 08:37:00,Cancelled,COD,"15, MG Road",Delhi,Delhi,110054,India,7667.04,INR,2026-07-17 06:40:00
+ORD1028,133,2026-07-11 08:32:00,Placed,Credit Card,"18, Anna Salai",Kolkata,West Bengal,700016,India,6205.69,INR,2026-07-11 20:26:00
+ORD1029,137,2026-07-16 17:38:00,Cancelled,Debit Card,"108, Anna Salai",Pune,Maharashtra,411001,India,14036.92,INR,2026-07-17 00:17:00
+ORD1030,113,2026-08-12 19:20:00,Delivered,Debit Card,"34, Residency Road",Hyderabad,Telangana,500034,India,13953.02,INR,2026-08-14 02:36:00
+ORD1031,104,2026-07-01 15:39:00,Shipped,Credit Card,"55, Banjara Hills",Lucknow,Uttar Pradesh,226010,India,14015.58,INR,2026-07-02 04:43:00
+ORD1032,104,2026-08-26 11:23:00,Returned,Debit Card,"214, Banjara Hills",Chennai,Tamil Nadu,600020,India,9272.25,INR,2026-08-28 00:33:00
+ORD1033,142,2026-08-03 08:42:00,Shipped,UPI,"241, Shastri Nagar",Pune,Maharashtra,411001,India,13373.26,INR,2026-08-06 08:01:00
+ORD1034,148,2026-08-05 10:17:00,Confirmed,Debit Card,"184, Sector 15",Noida,Uttar Pradesh,201301,India,7704.78,INR,2026-08-06 23:55:00
+ORD1035,116,2026-08-27 08:05:00,Shipped,Credit Card,"12, MG Road",Bengaluru,Karnataka,560025,India,9647.42,INR,2026-08-29 15:58:00
+ORD1036,116,2026-07-11 19:28:00,Placed,UPI,"144, MG Road",Hyderabad,Telangana,500034,India,14189.50,INR,2026-07-14 19:13:00
+ORD1037,145,2026-08-27 10:34:00,Confirmed,COD,"150, Banjara Hills",Delhi,Delhi,110054,India,2129.82,INR,2026-08-27 16:27:00
+ORD1038,119,,Returned,UPI,"54, Park Street",Delhi,Delhi,110054,India,5466.76,INR,2026-07-25 03:52:00
+ORD1039,136,2026-08-26 14:39:00,Confirmed,COD,"222, Shastri Nagar",Noida,Uttar Pradesh,201301,India,615.60,INR,2026-08-27 11:38:00
+ORD1040,148,2026-08-29 13:50:00,Returned,UPI,"69, Shastri Nagar",Noida,Uttar Pradesh,201301,India,5892.49,INR,2026-08-31 19:41:00
+ORD1041,102,2026-08-24 15:14:00,Confirmed,Credit Card,"90, Residency Road",Chennai,Tamil Nadu,600020,India,599.05,INR,2026-08-25 18:06:00
+ORD1042,112,2026-07-26 13:17:00,Delivered,Debit Card,"90, Banjara Hills",Bengaluru,Karnataka,560025,India,14103.75,INR,2026-07-26 23:06:00
+ORD1043,107,2026-08-26 12:11:00,Shipped,Debit Card,"153, Vaishali Nagar",Pune,Maharashtra,411001,India,6686.81,INR,2026-08-27 22:13:00
+ORD1044,132,2026-07-08 14:57:00,Placed,Credit Card,"182, Vaishali Nagar",Jaipur,Rajasthan,302016,India,5622.27,INR,2026-07-09 16:13:00
+ORD1045,104,2026-08-30 18:58:00,Returned,Debit Card,"170, Civil Lines",Delhi,Delhi,110054,India,7730.06,INR,2026-09-01 14:37:00
+ORD1046,143,2026-07-27 13:25:00,Returned,COD,"50, Vaishali Nagar",Kolkata,West Bengal,700016,India,10240.44,INR,2026-07-29 04:00:00
+ORD1047,111,2026-08-09 17:19:00,Confirmed,COD,"78, Residency Road",Jaipur,Rajasthan,302016,India,11839.94,INR,2026-08-11 21:54:00
+ORD1048,139,2026-08-11 13:29:00,Returned,Credit Card,"131, Indiranagar",Noida,Uttar Pradesh,201301,India,9968.05,INR,2026-08-13 22:57:00
+ORD1049,118,2026-08-02 18:40:00,Confirmed,Credit Card,"173, Residency Road",Noida,Uttar Pradesh,201301,India,2423.47,INR,2026-08-04 13:45:00
+ORD1050,102,2026-07-16 15:39:00,Confirmed,COD,"227, Anna Salai",Hyderabad,Telangana,500034,India,7542.06,INR,2026-07-17 02:08:00
+ORD1051,115,2026-07-10 18:44:00,Confirmed,Credit Card,"200, Vaishali Nagar",Pune,Maharashtra,411001,India,12110.62,INR,2026-07-10 20:41:00
+ORD1052,145,2026-08-03 15:03:00,Delivered,Debit Card,"117, Shastri Nagar",Pune,Maharashtra,411001,India,14263.08,INR,2026-08-06 15:18:00
+ORD1053,128,2026-08-09 19:57:00,Returned,COD,"115, Shastri Nagar",Lucknow,Uttar Pradesh,226010,India,6888.53,INR,2026-08-12 13:24:00
+ORD1054,149,2026-07-16 18:17:00,Placed,Debit Card,"71, Indiranagar",Noida,Uttar Pradesh,201301,India,3708.78,INR,2026-07-19 13:48:00
+ORD1055,121,2026-07-21 16:05:00,Returned,Credit Card,"99, Shastri Nagar",Noida,Uttar Pradesh,201301,India,1197.38,INR,2026-07-22 10:14:00
+ORD1056,126,2026-07-22 16:29:00,Delivered,UPI,"214, Vaishali Nagar",Noida,Uttar Pradesh,201301,India,12886.80,INR,2026-07-24 22:32:00
+ORD1057,149,2026-08-06 14:30:00,UNKNOWN_STATUS,Credit Card,"193, Vaishali Nagar",Bengaluru,Karnataka,560025,India,7451.38,INR,2026-08-06 15:52:00
+ORD1058,117,2026-07-28 15:01:00,Delivered,Credit Card,"186, Shastri Nagar",Hyderabad,Telangana,500034,India,14715.65,INR,2026-07-30 17:22:00
+ORD1059,134,2026-07-02 14:37:00,Confirmed,UPI,"35, Indiranagar",Hyderabad,Telangana,500034,India,4087.31,INR,2026-07-02 18:42:00
+ORD1060,120,2026-07-14 15:20:00,Shipped,UPI,"72, Vaishali Nagar",Hyderabad,Telangana,500034,India,7187.03,INR,2026-07-16 12:08:00
+ORD1061,148,2026-08-04 08:22:00,Placed,Credit Card,"200, MG Road",Pune,Maharashtra,411001,India,3190.57,INR,2026-08-05 14:03:00
+ORD1062,101,2026-08-09 10:15:00,Delivered,Debit Card,"145, Park Street",Pune,Maharashtra,411001,India,11561.75,INR,2026-08-10 03:45:00
+ORD1063,110,2026-08-08 17:47:00,Placed,UPI,"247, Residency Road",Kolkata,West Bengal,700016,India,13951.09,INR,2026-08-09 09:36:00
+ORD1064,137,2026-08-13 14:25:00,Placed,Debit Card,"177, Park Street",Navi Mumbai,Maharashtra,400703,India,12791.83,INR,2026-08-14 16:29:00
+ORD1065,139,2026-08-21 09:50:00,Placed,Debit Card,"110, Sector 15",Lucknow,Uttar Pradesh,226010,India,436.62,INR,2026-08-21 16:12:00
+ORD1066,126,2026-08-22 15:06:00,Delivered,Credit Card,"182, Shastri Nagar",Chennai,Tamil Nadu,600020,India,11073.48,INR,2026-08-24 23:29:00
+ORD1067,142,2026-07-18 17:51:00,Returned,Debit Card,"120, Vaishali Nagar",Chennai,Tamil Nadu,600020,India,5003.99,INR,2026-07-21 15:40:00
+ORD1068,115,2026-08-23 09:17:00,Returned,COD,"146, Anna Salai",Chennai,Tamil Nadu,600020,India,5211.85,INR,2026-08-25 19:32:00
+ORD1069,131,2026-08-24 13:11:00,Shipped,Debit Card,"205, Residency Road",Delhi,Delhi,110054,India,13234.72,INR,2026-08-27 04:24:00
+ORD1070,145,2026-08-26 12:35:00,Returned,COD,"22, Park Street",Noida,Uttar Pradesh,201301,India,7456.52,INR,2026-08-26 15:08:00
+ORD1071,149,2026-07-16 19:30:00,Confirmed,COD,"24, Residency Road",Jaipur,Rajasthan,302016,India,10453.86,INR,2026-07-19 10:58:00
+ORD1072,119,2026-08-12 17:23:00,Returned,Debit Card,"89, Vaishali Nagar",Lucknow,Uttar Pradesh,226010,India,5439.21,INR,2026-08-15 06:58:00
+ORD1073,129,2026-07-18 12:16:00,Returned,Credit Card,"81, Civil Lines",Noida,Uttar Pradesh,201301,India,3075.23,INR,2026-07-19 18:23:00
+ORD1074,148,2026-07-31 12:46:00,Shipped,Credit Card,"26, Park Street",Bengaluru,Karnataka,560025,India,5573.00,INR,2026-08-03 09:24:00
+ORD1075,119,2026-07-01 19:34:00,Cancelled,Debit Card,"250, MG Road",Jaipur,Rajasthan,302016,India,10536.91,INR,2026-07-02 12:51:00
+ORD1076,108,2026-08-10 20:31:00,Delivered,COD,"147, Residency Road",Jaipur,Rajasthan,302016,India,6746.91,INR,2026-08-11 11:26:00
+ORD1077,111,2026-07-04 12:55:00,Placed,UPI,"103, Indiranagar",Pune,Maharashtra,411001,India,2487.97,INR,2026-07-07 03:02:00
+ORD1078,137,2026-08-30 12:05:00,Cancelled,Credit Card,"196, Vaishali Nagar",Lucknow,Uttar Pradesh,226010,India,11691.48,INR,2026-08-31 20:12:00
+ORD1079,124,2026-07-29 15:19:00,Cancelled,UPI,"159, MG Road",Navi Mumbai,Maharashtra,400703,India,14226.96,INR,2026-07-31 22:38:00
+ORD1080,113,2026-08-10 11:16:00,Placed,,"45, Banjara Hills",Noida,Uttar Pradesh,201301,India,289.47,INR,2026-08-10 22:26:00
+ORD1081,128,2026-08-14 17:30:00,Returned,COD,"74, Residency Road",Noida,Uttar Pradesh,201301,India,1299.90,INR,2026-08-16 07:32:00
+ORD1082,114,2026-08-29 12:50:00,Returned,Credit Card,"140, Park Street",Pune,Maharashtra,411001,India,13649.07,INR,2026-08-30 15:17:00
+ORD1083,109,2026-07-05 08:10:00,Delivered,UPI,"236, Residency Road",Navi Mumbai,Maharashtra,400703,India,7163.30,INR,2026-07-07 00:48:00
+ORD1084,119,2026-08-14 14:17:00,Cancelled,UPI,"113, Civil Lines",Chennai,Tamil Nadu,600020,India,13368.99,INR,2026-08-17 07:51:00
+ORD1085,148,2026-07-21 17:16:00,Cancelled,UPI,"247, Anna Salai",Noida,Uttar Pradesh,201301,India,14993.69,INR,2026-07-21 21:21:00
+ORD1086,144,2026-08-22 12:36:00,Returned,COD,"121, Banjara Hills",Kolkata,West Bengal,700016,India,13762.07,INR,2026-08-22 19:24:00
+ORD1087,111,2026-08-07 14:40:00,Shipped,Debit Card,"90, Vaishali Nagar",Chennai,Tamil Nadu,600020,India,10134.47,INR,2026-08-10 05:45:00
+ORD1088,110,2026-07-22 14:44:00,Placed,COD,"209, Banjara Hills",Hyderabad,Telangana,500034,India,1548.88,INR,2026-07-25 07:02:00
+ORD1089,116,2026-07-21 09:49:00,Returned,COD,"212, MG Road",Lucknow,Uttar Pradesh,226010,India,6345.40,INR,2026-07-23 14:44:00
+ORD1090,112,2026-08-03 13:39:00,Confirmed,Debit Card,"195, MG Road",Chennai,Tamil Nadu,600020,India,8350.99,INR,2026-08-06 06:19:00
+ORD1091,118,2026-07-29 19:31:00,Returned,Credit Card,"205, Park Street",Navi Mumbai,Maharashtra,400703,India,4833.56,INR,2026-07-30 11:32:00
+ORD1092,100,2026-08-05 14:05:00,Returned,Credit Card,"119, Civil Lines",Pune,Maharashtra,411001,India,7601.04,INR,2026-08-06 19:58:00
+ORD1093,146,2026-07-19 16:45:00,Delivered,Credit Card,"121, Park Street",Chennai,Tamil Nadu,600020,India,5907.89,INR,2026-07-21 04:11:00
+ORD1094,139,2026-08-02 19:56:00,Shipped,Debit Card,"71, Vaishali Nagar",Pune,Maharashtra,411001,India,12353.10,INR,2026-08-03 14:51:00
+ORD1095,118,2026-08-16 12:53:00,Delivered,Debit Card,"115, Banjara Hills",Kolkata,West Bengal,700016,India,5153.49,INR,2026-08-19 04:48:00
+ORD1096,149,2026-08-04 14:29:00,Cancelled,COD,"179, Park Street",Noida,Uttar Pradesh,201301,India,3695.05,INR,2026-08-06 09:24:00
+ORD1097,126,2026-07-03 13:47:00,Delivered,UPI,"99, Shastri Nagar",Hyderabad,Telangana,500034,India,2112.13,INR,2026-07-06 03:32:00
+ORD1098,138,2026-07-22 09:55:00,Placed,Credit Card,"234, Indiranagar",Lucknow,Uttar Pradesh,226010,India,6297.18,INR,2026-07-24 19:01:00
+ORD1099,142,2026-07-10 09:30:00,Returned,UPI,"178, Vaishali Nagar",Navi Mumbai,Maharashtra,400703,India,12813.54,INR,2026-07-11 19:51:00
+ORD1100,144,2026-08-24 16:24:00,Placed,UPI,"224, Banjara Hills",Chennai,Tamil Nadu,600020,India,3712.86,INR,2026-08-26 10:04:00
+ORD1101,144,2026-08-28 12:14:00,Delivered,Credit Card,"195, Civil Lines",Pune,Maharashtra,411001,India,10486.52,INR,2026-08-29 00:41:00
+ORD1102,101,2026-07-03 13:50:00,Confirmed,Credit Card,"96, Vaishali Nagar",Delhi,Delhi,110054,India,8084.70,INR,2026-07-03 22:08:00
+ORD1103,137,2026-08-13 20:11:00,Cancelled,Credit Card,"157, Vaishali Nagar",Pune,Maharashtra,411001,India,7590.59,INR,2026-08-14 18:22:00
+ORD1104,138,2026-07-10 11:29:00,Delivered,Debit Card,"171, MG Road",Bengaluru,Karnataka,560025,,10244.76,INR,2026-07-11 20:58:00
+ORD1105,110,2026-07-05 15:22:00,Delivered,Debit Card,"177, Residency Road",Hyderabad,Telangana,500034,India,3188.45,INR,2026-07-07 07:02:00
+ORD1106,124,2026-08-24 15:06:00,Shipped,Debit Card,"92, Anna Salai",Navi Mumbai,Maharashtra,400703,India,573.61,INR,2026-08-25 22:30:00
+ORD1107,143,2026-07-26 12:00:00,Shipped,Credit Card,"191, Indiranagar",Navi Mumbai,Maharashtra,400703,India,9204.21,INR,2026-07-26 19:58:00
+ORD1108,122,2026-07-15 18:12:00,Returned,UPI,"161, Civil Lines",Kolkata,West Bengal,700016,India,4806.76,INR,2026-07-17 03:55:00
+ORD1109,128,2026-07-03 17:23:00,Confirmed,Credit Card,"84, Vaishali Nagar",Bengaluru,Karnataka,560025,India,2199.36,INR,2026-07-04 10:28:00
+ORD1110,134,2026-08-26 13:33:00,Shipped,COD,"213, Shastri Nagar",Bengaluru,Karnataka,560025,India,14518.92,INR,2026-08-29 07:31:00
+ORD1111,118,2026-08-17 13:51:00,Returned,COD,"37, Park Street",Pune,Maharashtra,411001,India,14517.23,INR,2026-08-18 05:20:00
+ORD1112,136,2026-07-24 09:50:00,Delivered,Debit Card,"138, Civil Lines",Bengaluru,Karnataka,560025,India,10174.22,INR,2026-07-26 12:50:00
+ORD1113,144,2026-07-17 17:24:00,Cancelled,Debit Card,"121, MG Road",Noida,Uttar Pradesh,201301,India,13750.02,INR,2026-07-19 17:30:00
+ORD1114,114,2026-08-11 09:40:00,Placed,Credit Card,"167, Vaishali Nagar",Bengaluru,Karnataka,560025,India,918.87,INR,2026-08-13 22:38:00
+ORD1115,102,2026-07-20 15:07:00,Delivered,Debit Card,"35, Vaishali Nagar",Lucknow,Uttar Pradesh,226010,India,10139.67,INR,2026-07-21 04:22:00
+ORD1116,148,2026-08-14 16:26:00,Delivered,COD,"168, Civil Lines",Hyderabad,Telangana,500034,India,14101.03,INR,2026-08-15 13:22:00
+ORD1117,117,2026-07-03 19:23:00,Shipped,UPI,"244, Park Street",Chennai,Tamil Nadu,600020,India,14718.68,INR,2026-07-04 23:51:00
+ORD1118,123,2026-08-04 18:22:00,Delivered,UPI,"49, Civil Lines",Bengaluru,Karnataka,560025,India,10025.84,INR,2026-08-05 02:47:00
+ORD1119,142,2026-08-10 17:01:00,Cancelled,Credit Card,"63, Shastri Nagar",Delhi,Delhi,110054,India,1262.00,INR,2026-08-11 00:51:00
+ORD1120,149,2026-08-05 11:37:00,Cancelled,UPI,"85, Shastri Nagar",Noida,Uttar Pradesh,201301,India,4339.80,INR,2026-08-06 16:29:00
+ORD1121,109,2026-07-09 16:16:00,Shipped,Credit Card,"34, MG Road",Jaipur,Rajasthan,302016,India,8935.58,INR,2026-07-10 15:23:00
+ORD1122,101,2026-07-12 12:03:00,Returned,UPI,"135, Civil Lines",Hyderabad,Telangana,500034,India,7274.63,INR,2026-07-13 05:50:00
+ORD1123,123,2026-08-02 17:06:00,Placed,Debit Card,"243, Anna Salai",Noida,Uttar Pradesh,201301,India,7006.13,INR,2026-08-05 03:38:00
+ORD1124,101,2026-07-04 15:54:00,Placed,UPI,"126, Indiranagar",Pune,Maharashtra,411001,India,5001.15,INR,2026-07-06 20:21:00
+ORD1125,109,2026-07-05 10:17:00,Cancelled,Debit Card,"98, Anna Salai",Delhi,Delhi,110054,India,6942.30,INR,2026-07-08 10:02:00
+ORD1126,139,2026-07-28 09:50:00,Delivered,COD,"185, Park Street",Lucknow,Uttar Pradesh,226010,India,13349.34,INR,2026-07-29 01:44:00
+ORD1127,126,2026-07-22 15:25:00,Shipped,Debit Card,"81, Vaishali Nagar",Pune,Maharashtra,411001,India,-499.00,INR,2026-07-24 22:11:00
+ORD1128,109,2026-08-13 15:04:00,Placed,Debit Card,"24, Vaishali Nagar",Pune,Maharashtra,411001,India,12223.60,INR,2026-08-14 03:57:00
+ORD1129,136,2026-07-04 17:35:00,Returned,COD,"106, Sector 15",Pune,Maharashtra,411001,India,13054.36,INR,2026-07-07 17:56:00
+ORD1130,147,2026-07-04 12:38:00,Confirmed,Credit Card,"148, Banjara Hills",Pune,Maharashtra,411001,India,9936.86,INR,2026-07-06 05:00:00
+ORD1131,114,2026-08-24 09:22:00,Cancelled,Credit Card,"196, Residency Road",Pune,Maharashtra,411001,India,12156.52,INR,2026-08-27 09:45:00
+ORD1132,136,2026-08-19 17:39:00,Placed,Credit Card,"238, Residency Road",Navi Mumbai,Maharashtra,400703,India,4280.74,INR,2026-08-22 17:40:00
+ORD1133,149,2026-07-20 13:22:00,Placed,Credit Card,"145, Vaishali Nagar",Kolkata,West Bengal,700016,India,11179.29,INR,2026-07-20 14:33:00
+ORD1134,101,2026-07-06 19:33:00,Confirmed,Debit Card,"117, Sector 15",Hyderabad,Telangana,500034,India,4846.65,INR,2026-07-07 23:57:00
+ORD1135,120,2026-08-19 17:38:00,Cancelled,UPI,"40, Shastri Nagar",Jaipur,Rajasthan,302016,India,10191.04,INR,2026-08-20 05:34:00
+ORD1136,117,2026-07-29 18:27:00,Confirmed,UPI,"107, Residency Road",Chennai,Tamil Nadu,600020,India,5341.30,INR,2026-08-01 10:05:00
+ORD1137,107,2026-07-19 18:43:00,Delivered,UPI,"12, Park Street",Bengaluru,Karnataka,560025,India,363.38,INR,2026-07-22 10:16:00
+ORD1138,119,2026-08-30 11:49:00,Placed,UPI,"75, Sector 15",Bengaluru,Karnataka,560025,India,7586.43,INR,2026-08-31 06:37:00
+ORD1139,127,2026-07-12 10:24:00,Returned,Debit Card,"129, Banjara Hills",Noida,Uttar Pradesh,201301,India,1313.11,INR,2026-07-15 08:09:00
+ORD1140,148,2026-07-03 14:01:00,Cancelled,COD,"221, Sector 15",Pune,Maharashtra,411001,India,8707.65,INR,2026-07-06 01:59:00
+ORD1141,146,2026-08-10 14:18:00,Confirmed,COD,"248, Sector 15",Jaipur,Rajasthan,302016,India,12522.38,INR,2026-08-11 05:43:00
+ORD1142,123,2026-07-06 14:54:00,Cancelled,UPI,"151, Vaishali Nagar",Hyderabad,Telangana,500034,India,6087.56,INR,2026-07-07 05:09:00
+ORD1143,119,2026-08-17 13:14:00,Returned,UPI,"20, Banjara Hills",Kolkata,West Bengal,700016,India,8076.42,INR,2026-08-19 09:03:00
+ORD1144,112,2026-08-27 20:22:00,Confirmed,Debit Card,"61, Civil Lines",Kolkata,West Bengal,700016,India,3159.76,INR,2026-08-29 18:08:00
+ORD1145,139,2026-07-10 20:48:00,Cancelled,COD,"119, Anna Salai",Chennai,Tamil Nadu,600020,India,10296.72,INR,2026-07-11 06:59:00
+ORD1146,137,2026-08-11 18:39:00,Placed,COD,"39, Indiranagar",Delhi,Delhi,110054,India,6772.57,INR,2026-08-13 13:34:00
+ORD1147,119,2026-08-20 12:37:00,Delivered,COD,"19, Residency Road",Lucknow,Uttar Pradesh,226010,India,804.71,INR,2026-08-20 20:59:00
+ORD1148,123,2026-08-23 12:04:00,Delivered,UPI,"130, Vaishali Nagar",Navi Mumbai,Maharashtra,400703,India,6883.57,INR,2026-08-24 00:43:00
+ORD1149,137,2026-08-11 11:20:00,Delivered,UPI,"246, MG Road",Kolkata,West Bengal,700016,India,12211.76,INR,2026-08-14 00:52:00
+ORD1150,121,2026-08-15 09:32:00,Delivered,Credit Card,"182, Indiranagar",Noida,Uttar Pradesh,201301,India,5617.49,,2026-08-16 08:34:00
+ORD1151,118,2026-07-25 14:49:00,Placed,Debit Card,"14, Sector 15",Navi Mumbai,Maharashtra,400703,India,1643.96,INR,2026-07-27 11:32:00
+ORD1152,144,2026-07-25 12:16:00,Shipped,Debit Card,"150, Shastri Nagar",Pune,Maharashtra,411001,India,14523.52,INR,2026-07-26 08:37:00
+ORD1153,145,2026-08-12 14:08:00,Confirmed,UPI,"97, Sector 15",Lucknow,Uttar Pradesh,226010,India,9778.87,INR,2026-08-13 01:27:00
+ORD1154,127,2026-08-02 13:01:00,Shipped,COD,"244, Park Street",Kolkata,West Bengal,700016,India,3082.08,INR,2026-08-04 12:20:00
+ORD1155,108,2026-07-10 09:18:00,Placed,Debit Card,"214, Banjara Hills",Lucknow,Uttar Pradesh,226010,India,13176.79,INR,2026-07-10 22:50:00
+ORD1156,140,2026-07-09 17:24:00,Confirmed,COD,"213, Anna Salai",Kolkata,West Bengal,700016,India,894.46,INR,2026-07-10 13:34:00
+ORD1157,123,2026-08-13 19:15:00,Confirmed,Credit Card,"193, Indiranagar",Bengaluru,Karnataka,560025,India,4814.65,INR,2026-08-16 04:54:00
+ORD1158,130,2026-08-27 11:23:00,Cancelled,COD,"200, Vaishali Nagar",Bengaluru,Karnataka,560025,India,14502.46,INR,2026-08-29 20:52:00
+ORD1159,112,2026-08-21 17:08:00,Cancelled,UPI,"224, Sector 15",Chennai,Tamil Nadu,600020,India,10743.16,INR,2026-08-23 02:11:00
+ORD1160,133,2026-08-24 09:18:00,Cancelled,Credit Card,"70, Indiranagar",Kolkata,West Bengal,700016,India,12507.94,INR,2026-08-24 21:06:00
+ORD1161,105,2026-08-30 11:52:00,Delivered,UPI,"239, MG Road",Delhi,Delhi,110054,India,6097.70,INR,2026-09-01 22:48:00
+ORD1162,123,2026-07-16 14:05:00,Returned,Debit Card,"82, Civil Lines",Jaipur,Rajasthan,302016,India,11922.86,INR,2026-07-18 14:19:00
+ORD1163,108,2026-07-03 12:58:00,Delivered,UPI,"195, Indiranagar",Kolkata,West Bengal,700016,India,13611.40,INR,2026-07-06 02:42:00
+ORD1164,101,2026-07-17 11:53:00,Placed,Debit Card,"136, Vaishali Nagar",Navi Mumbai,Maharashtra,400703,India,3755.19,INR,2026-07-18 08:28:00
+ORD1165,107,2026-07-04 11:26:00,Cancelled,UPI,"215, Indiranagar",Pune,Maharashtra,411001,India,9571.34,INR,2026-07-06 22:30:00
+ORD1166,137,2026-07-16 19:09:00,Confirmed,COD,"158, Sector 15",Jaipur,Rajasthan,302016,India,3012.88,INR,2026-07-18 09:36:00
+ORD1167,143,2026-07-06 16:23:00,Cancelled,UPI,"130, Banjara Hills",Lucknow,Uttar Pradesh,226010,India,6009.19,INR,2026-07-07 01:56:00
+ORD1168,130,2026-07-03 18:24:00,Shipped,Credit Card,"92, Civil Lines",Jaipur,Rajasthan,302016,India,11060.88,INR,2026-07-05 18:40:00
+ORD1169,141,2026-07-07 20:37:00,Shipped,Credit Card,"91, Banjara Hills",Jaipur,Rajasthan,302016,India,12498.16,INR,2026-07-09 15:45:00
+ORD1170,144,2026-07-30 19:30:00,Placed,Debit Card,"17, Indiranagar",Kolkata,West Bengal,700016,India,3223.47,INR,2026-07-31 20:21:00
+ORD1171,112,2026-08-26 08:20:00,Delivered,Debit Card,"209, Banjara Hills",Hyderabad,Telangana,500034,India,790.16,INR,2026-08-28 00:52:00
+ORD1172,142,2026-07-13 12:22:00,Shipped,COD,"70, Civil Lines",Delhi,Delhi,110054,India,13369.93,INR,2026-07-13 20:17:00
+ORD1173,148,2026-07-29 14:21:00,Shipped,UPI,"95, Banjara Hills",Chennai,Tamil Nadu,600020,India,10974.45,INR,2026-01-01 00:00:00
+ORD1174,105,2026-07-28 17:52:00,Placed,Debit Card,"83, Civil Lines",Bengaluru,Karnataka,560025,India,9998.56,INR,2026-07-29 18:26:00
+ORD1175,119,2026-07-29 17:45:00,Placed,Debit Card,"90, Indiranagar",Chennai,Tamil Nadu,600020,India,9319.06,INR,2026-08-01 00:55:00
+ORD1176,127,2026-07-18 18:50:00,Returned,Credit Card,"94, Banjara Hills",Hyderabad,Telangana,500034,India,14303.64,INR,2026-07-19 02:54:00
+ORD1177,109,2026-08-24 17:43:00,Returned,Debit Card,"18, Park Street",Kolkata,West Bengal,700016,India,5591.72,INR,2026-08-27 02:45:00
+ORD1178,137,2026-07-03 17:09:00,Cancelled,Credit Card,"114, Civil Lines",Delhi,Delhi,110054,India,8059.53,INR,2026-07-06 03:32:00
+ORD1179,125,2026-07-21 18:17:00,Delivered,COD,"189, Shastri Nagar",Jaipur,Rajasthan,302016,India,13724.75,INR,2026-07-23 02:24:00
+ORD1180,107,2026-07-17 20:16:00,Confirmed,UPI,"74, Indiranagar",Navi Mumbai,Maharashtra,400703,India,2251.99,INR,2026-07-20 06:29:00
+ORD1181,104,2026-07-29 10:57:00,Returned,UPI,"171, Sector 15",Delhi,Delhi,110054,India,8362.46,INR,2026-07-31 20:02:00
+ORD1182,118,2026-08-27 12:54:00,Cancelled,Credit Card,"204, Sector 15",Kolkata,West Bengal,700016,India,2040.10,INR,2026-08-28 10:39:00
+ORD1183,112,2026-08-20 10:15:00,Shipped,COD,"142, Anna Salai",Delhi,Delhi,110054,India,12104.01,INR,2026-08-23 02:16:00
+ORD1184,136,2026-07-09 17:56:00,Cancelled,COD,"102, Indiranagar",Bengaluru,Karnataka,560025,India,11595.18,INR,2026-07-10 06:00:00
+ORD1185,137,2026-07-05 10:20:00,Shipped,Credit Card,"175, Banjara Hills",Chennai,Tamil Nadu,600020,India,13199.91,INR,2026-07-05 20:48:00
+ORD1186,136,2026-08-10 17:11:00,Placed,Credit Card,"234, MG Road",Lucknow,Uttar Pradesh,226010,India,4735.84,INR,2026-08-11 10:38:00
+ORD1187,110,2026-07-21 19:14:00,Shipped,Credit Card,"217, Civil Lines",Bengaluru,Karnataka,560025,India,9617.09,INR,2026-07-23 16:47:00
+ORD1188,136,2026-07-18 10:40:00,Returned,Credit Card,"24, Banjara Hills",Lucknow,Uttar Pradesh,226010,India,8979.17,INR,2026-07-20 02:19:00
+ORD1189,138,2026-07-10 10:42:00,Placed,UPI,"11, MG Road",Navi Mumbai,Maharashtra,400703,India,14241.07,INR,2026-07-12 07:35:00
+ORD1190,137,2026-07-17 18:13:00,Shipped,Debit Card,"128, Banjara Hills",Jaipur,Rajasthan,302016,India,7373.44,INR,2026-07-20 00:52:00
+ORD1191,144,2026-07-26 12:29:00,Delivered,COD,"41, Indiranagar",Jaipur,Rajasthan,302016,India,7100.52,INR,2026-07-26 23:13:00
+ORD1192,121,2026-08-08 10:20:00,Confirmed,Debit Card,"250, Vaishali Nagar",Delhi,Delhi,110054,India,7845.96,INR,2026-08-10 04:06:00
+ORD1193,106,2026-07-21 11:29:00,Placed,UPI,"64, Shastri Nagar",Chennai,Tamil Nadu,600020,India,4530.63,INR,2026-07-22 03:46:00
+ORD1194,124,2026-08-25 17:26:00,Cancelled,Debit Card,"209, Sector 15",Kolkata,West Bengal,700016,India,3050.05,INR,2026-08-27 02:21:00
+ORD1195,110,2026-08-01 16:29:00,Placed,COD,"128, MG Road",Bengaluru,Karnataka,560025,India,7705.31,INR,2026-08-04 09:25:00
+ORD1195,115,2026-07-14 17:22:00,Returned,COD,"127, Anna Salai",Bengaluru,Karnataka,560025,India,4464.79,INR,2026-07-15 00:25:00
+ORD1197,100,2026-08-24 09:27:00,Delivered,Debit Card,"187, Sector 15",Bengaluru,Karnataka,560025,India,917.33,INR,2026-08-25 04:23:00
+ORD1198,103,2026-08-06 16:12:00,Cancelled,COD,"19, Vaishali Nagar",Bengaluru,Karnataka,560025,India,11524.96,INR,2026-08-08 15:47:00
+ORD1199,117,2026-08-22 17:43:00,Shipped,Debit Card,"101, Sector 15",Pune,Maharashtra,411001,India,11385.74,INR,2026-08-23 09:51:00
+ORD1200,112,2026-08-08 16:25:00,Returned,Debit Card,"10, Shastri Nagar",Jaipur,Rajasthan,302016,India,12108.50,INR,2026-08-11 09:27:00
