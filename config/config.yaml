@@ -50,7 +50,6 @@ datasets:
           - created_date
           - updated_date
       
-
   customers:
     enabled: true
     source: data/source/customers.csv
@@ -102,12 +101,36 @@ datasets:
     source: data/source/order_items.csv
     bronze: data/bronze/order_items
     silver: data/silver/order_items
-    gold: data/gold/dim_order_items
+    gold: data/gold/fact_order_items
     quarantine: data/quarantine/order_items
     schema: order_items_schema
     format: csv
     delimiter: ","
     header: true
+    validation:
+      mandatory_columns:
+        - order_item_id
+        - order_id
+        - product_id
+        - quantity
+        - price_id
+        - discount_percent
+        - tax_percent
+        - created_date
+        - updated_date
+      
+      duplicate_keys:
+        - order_item_id
+
+      max_bad_records_percent: 5
+
+    transformations:
+      - type: trim
+
+      - type: date_normalizer
+        columns:
+          - created_date
+          - updated_date
 
   orders:
     enabled: false
@@ -120,6 +143,65 @@ datasets:
     format: csv
     delimiter: ","
     header: true
+    validation:
+      mandatory_columns:
+        - order_id
+        - customer_id
+        - order_date
+        - order_status
+        - payment_method
+        - shipping_address
+        - shipping_city
+        - shipping_country
+        - total_amount
+        - currency
+        - update_date
+      
+      duplicate_keys:
+        - order_id
+
+      max_bad_records_percent: 5
+
+    transformations:
+      - type: trim
+
+      - type: date_normalizer
+        columns:
+          - order_date
+          - update_date
+
+  product_prices:
+    enabled: false
+    source: data/source/product_prices.csv
+    bronze: data/bronze/product_prices
+    silver: data/silver/product_prices
+    gold: data/gold/fact_product_prices
+    quarantine: data/quarantine/product_prices
+    schema: product_prices_schema
+    format: csv
+    delimiter: ","
+    header: true
+    validation:
+      mandatory_columns:
+        - price_id
+        - product_id
+        - price
+        - currency
+        - created_date
+        - updated_date
+      
+      duplicate_keys:
+        - price_id
+
+      max_bad_records_percent: 5
+
+    transformations:
+      - type: trim
+
+      - type: date_normalizer
+        columns:
+          - created_date
+          - updated_date
 
   products:
     enabled: true
@@ -157,21 +239,74 @@ datasets:
           - update_date
 
     gold_config:
-      business_key: customer_id
-      version_key: customer_key
+      business_key: product_id
+      version_key: product_key
+
+  sub_categories:
+    enabled: false
+    source: data/source/sub_categories.csv
+    bronze: data/bronze/sub_categories
+    silver: data/silver/sub_categories
+    gold: data/gold/dim_sub_categories
+    quarantine: data/quarantine/sub_categories
+    schema: sub_categories_schema
+    format: csv
+    delimiter: ","
+    header: true
+    validation:
+      mandatory_columns:
+        - sub_category_id
+        - category_id
+        - sub_category_name
+        - is_active
+        - created_date
+        - updated_date
+
+      duplicate_keys:
+        - sub_category_id
+
+      max_bad_records_percent: 5
+
+    transformations:
+      - type: trim
+
+      - type: date_normalizer
+        columns:
+          - created_date
+          - updated_date
 
   wishlist:
     enabled: false
     source: data/source/wishlist.csv
     bronze: data/bronze/wishlist
     silver: data/silver/wishlist
-    gold: data/gold/dim_wishlist
+    gold: data/gold/fact_wishlist
     quarantine: data/quarantine/wishlist
     schema: wishlist_schema
     format: csv
     delimiter: ","
     header: true
+    validation:
+      mandatory_columns:
+        - wishlist_id
+        - customer_id
+        - product_id
+        - created_date
+        - updated_date
+        - is_active
 
+      duplicate_keys:
+        - wishlist_id
+
+      max_bad_records_percent: 5
+
+    transformations:
+      - type: trim
+
+      - type: date_normalizer
+        columns:
+          - created_date
+          - updated_date
 
 file:
   format: csv
