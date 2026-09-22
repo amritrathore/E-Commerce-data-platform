@@ -29,6 +29,27 @@ datasets:
     format: csv
     delimiter: ","
     header: true
+    validation:
+      mandatory_columns:
+        - category_id
+        - category_name
+        - is_active
+        - created_date
+        - updated_date
+
+      duplicate_keys:
+        - category_id
+
+      max_bad_records_percent: 5
+
+    transformations:
+      - type: trim
+
+      - type: date_normalizer
+        columns:
+          - created_date
+          - updated_date
+      
 
   customers:
     enabled: true
@@ -125,7 +146,7 @@ datasets:
       duplicate_keys:
         - product_id
       
-      max_bad_records_percent: 10
+      max_bad_records_percent: 5
 
     transformations:
       - type: trim
