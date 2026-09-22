@@ -1,5 +1,10 @@
-from pyspark.sql.types import StructType, StructField, StringType, TimestampType, BooleanType
-
+from pyspark.sql.types import (
+    StructType,
+    StructField,
+    StringType,
+    TimestampType,
+    BooleanType
+)
 
 customer_schema = StructType([
     StructField("customer_id", StringType(), False),
